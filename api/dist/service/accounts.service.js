@@ -5,6 +5,7 @@ import { AppDataSource } from "../config/database.config.js";
 import { TokensManager } from "../config/tokens.manager.js";
 import { imagesVersion } from "../app.js";
 import { ChampionsRequestsManager } from "../summoners/champions.requests.manager.js";
+import { MatchManager } from "../summoners/match.manager.js";
 export class AccountsService {
     constructor() {
         this.userRepository = AppDataSource.getRepository(UserModel);
@@ -101,6 +102,8 @@ export class AccountsService {
         if (topChampionKey) {
             championCoverImage = await ChampionsRequestsManager.getChampionCoverImage(topChampionKey);
         }
+        const isLolMatchesFound = await MatchManager.isLolMatchesFound(userInstance.summonerRegion, summonerInfo.puuid);
+        const isTftMatchesFound = await MatchManager.isTftMatchesFound(userInstance.summonerRegion, summonerInfo.puuid);
         return Promise.resolve({
             user: this.getUserModelByQuery(userInstance),
             summonerInfo: {
@@ -110,13 +113,34 @@ export class AccountsService {
                 masteryPoints: Number(profileMasteryScore),
                 accountId: summonerInfo.accountId,
                 accountHash: summonerInfo.puuid,
+                isLolMatchesFound: isLolMatchesFound,
+                isTftMatchesFound: isTftMatchesFound,
                 summonerHighlightName: userInstance.summonerName.split('#')[0],
                 serverHighlightName: userInstance.summonerName.split('#')[1],
                 profileImage: `https://ddragon.leagueoflegends.com/cdn/${imagesVersion}/img/profileicon/${summonerInfo.profileIconId}.png`,
-                ranked: [],
-                topChampionsMastery: topMasteryChampions
+                topChampionsMastery: topMasteryChampions,
+                widgets: this.getProfileWidgets()
             }
         });
+    }
+    getProfileWidgets() {
+        return [
+            {
+                name: "Valorant",
+                image: "https://s3-alpha.figma.com/hub/file/3670567989/53445ade-90b6-4ebd-97bf-cbd7b38f822e-cover.png",
+                link: "https://playvalorant.com/en-us"
+            },
+            {
+                name: "League of Runeterra",
+                image: "https://runeterraccg.com/wp-content/uploads/Legends-of-Runeterra-2022.jpg",
+                link: "https://playruneterra.com/"
+            },
+            {
+                name: "Wildrift",
+                image: "https://images.contentstack.io/v3/assets/blt370612131b6e0756/blt25c7cb03f8dbb71e/5f5a8d9769d060498b8e4c31/WR_meta_homepage.png",
+                link: "https://wildrift.leagueoflegends.com/ar-ae/"
+            }
+        ];
     }
 }
 //# sourceMappingURL=accounts.service.js.map

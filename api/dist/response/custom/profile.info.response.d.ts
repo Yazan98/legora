@@ -11,10 +11,17 @@ export interface ProfileInfoResponse {
         coverImage: string;
         summonerHighlightName: string;
         serverHighlightName: string;
-        ranked: Array<ProfileRankInfo>;
+        isLolMatchesFound: Boolean;
+        isTftMatchesFound: Boolean;
         topChampionsMastery: Array<string>;
+        widgets: Array<ProfileWidget>;
     };
 }
+export type ProfileWidget = {
+    name: string;
+    image: string;
+    link: string;
+};
 export interface ProfileRankInfo {
     name: string;
     icon: string;

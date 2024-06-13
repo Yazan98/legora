@@ -9,4 +9,5 @@ export declare class AccountsService {
     onLoginAccount(loginRequestBody: LoginRequestBody, platform: string): Promise<AuthResponse>;
     private getUserModelByQuery;
     getProfileInfoById(userId: number): Promise<ProfileInfoResponse>;
+    private getProfileWidgets;
 }

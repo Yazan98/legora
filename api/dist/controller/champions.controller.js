@@ -7,7 +7,7 @@ export class ChampionsController extends RiotBaseController {
         this.service = new ChampionsService();
     }
     initControllerRoutes(app) {
-        this.onRegisterGetRequest(app, this.getControllerUrl() + '/', (request, response) => {
+        this.onRegisterGetRequest(app, this.getControllerUrl() + '/lol', (request, response) => {
             this.getChampionsList(this.getUserId(request))
                 .then((result) => {
                 RiotResponseGenerator.onSendSuccessResponse(true, "Champions Found Successfully!", result, response);
