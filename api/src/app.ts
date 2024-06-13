@@ -11,6 +11,7 @@ import {AccountsController} from "./controller/accounts.controller.js";
 import {RiotRequestsManager} from "./summoners/riot.requests.manager.js";
 import {ChampionObject} from "./response/riot/champion.model.js";
 import {ChampionsController} from "./controller/champions.controller.js";
+import {MatchesController} from "./controller/matches.controller.js";
 
 export let imagesVersion = '14.11.1';
 export let championsList = new Array<ChampionObject>();
@@ -46,6 +47,7 @@ app.get('/ping', (req, res) => res.send('Working :P'))
  */
 new AccountsController().initControllerRoutes(app);
 new ChampionsController().initControllerRoutes(app);
+new MatchesController().initControllerRoutes(app);
 
 /**
  * Fetch Static Data Once App Running
