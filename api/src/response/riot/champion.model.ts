@@ -9,6 +9,7 @@ export interface ChampionObject {
     id: string,
     key: string,
     name: string,
+    points: number,
     title: string,
     blurb: string
 }

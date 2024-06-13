@@ -8,6 +8,9 @@ export interface ProfileInfoResponse {
         accountId: string;
         accountHash: string;
         profileImage: string;
+        coverImage: string;
+        summonerHighlightName: string;
+        serverHighlightName: string;
         ranked: Array<ProfileRankInfo>;
         topChampionsMastery: Array<string>;
     };
@@ -17,4 +20,5 @@ export interface ProfileRankInfo {
     icon: string;
     id: number;
     level: number;
+    points: number;
 }

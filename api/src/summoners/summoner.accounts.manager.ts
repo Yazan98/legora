@@ -57,7 +57,8 @@ export class SummonerAccountsManager {
                         icon: `https://ddragon.leagueoflegends.com/cdn/${imagesVersion}/img/champion/${championInstance[0].name.replace(" ", "")}.png`,
                         name: championInstance[0].name,
                         id: masteryRecord.championId,
-                        level: masteryRecord.championLevel
+                        level: masteryRecord.championLevel,
+                        points: masteryRecord.championPoints,
                     })
                 }
                 result.data

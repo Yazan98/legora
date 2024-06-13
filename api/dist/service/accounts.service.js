@@ -4,6 +4,7 @@ import { SummonerAccountsManager } from "../summoners/summoner.accounts.manager.
 import { AppDataSource } from "../config/database.config.js";
 import { TokensManager } from "../config/tokens.manager.js";
 import { imagesVersion } from "../app.js";
+import { ChampionsRequestsManager } from "../summoners/champions.requests.manager.js";
 export class AccountsService {
     constructor() {
         this.userRepository = AppDataSource.getRepository(UserModel);
@@ -92,14 +93,25 @@ export class AccountsService {
         const summonerInfo = await SummonerAccountsManager.getSummonerProfileByInfo(userInstance.summonerName, userInstance.summonerRegion, userInstance.summonerServerCode);
         const profileMasteryScore = await SummonerAccountsManager.getMasteryPointsByAccountId(userInstance.summonerServerCode, summonerInfo.puuid);
         const topMasteryChampions = await SummonerAccountsManager.getTopMasteryChampionsIcons(userInstance.summonerServerCode, summonerInfo.puuid);
+        let topChampionKey = '';
+        if (topMasteryChampions && topMasteryChampions.length > 0) {
+            topChampionKey = topMasteryChampions[0].name.replace(' ', '');
+        }
+        let championCoverImage = '';
+        if (topChampionKey) {
+            championCoverImage = await ChampionsRequestsManager.getChampionCoverImage(topChampionKey);
+        }
         return Promise.resolve({
             user: this.getUserModelByQuery(userInstance),
             summonerInfo: {
                 level: summonerInfo.summonerLevel,
+                coverImage: championCoverImage,
                 name: summonerInfo.name,
                 masteryPoints: Number(profileMasteryScore),
                 accountId: summonerInfo.accountId,
                 accountHash: summonerInfo.puuid,
+                summonerHighlightName: userInstance.summonerName.split('#')[0],
+                serverHighlightName: userInstance.summonerName.split('#')[1],
                 profileImage: `https://ddragon.leagueoflegends.com/cdn/${imagesVersion}/img/profileicon/${summonerInfo.profileIconId}.png`,
                 ranked: [],
                 topChampionsMastery: topMasteryChampions

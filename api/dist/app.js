@@ -8,6 +8,7 @@ import { AppDataSource } from "./config/database.config.js";
 import { baseUrl, HOST, PORT } from "./config/config.js";
 import { AccountsController } from "./controller/accounts.controller.js";
 import { RiotRequestsManager } from "./summoners/riot.requests.manager.js";
+import { ChampionsController } from "./controller/champions.controller.js";
 export let imagesVersion = '14.11.1';
 export let championsList = new Array();
 const app = express();
@@ -27,6 +28,7 @@ app.use((req, res, next) => {
 });
 app.get('/ping', (req, res) => res.send('Working :P'));
 new AccountsController().initControllerRoutes(app);
+new ChampionsController().initControllerRoutes(app);
 RiotRequestsManager.getCurrentAppVersion()
     .then((version) => {
     imagesVersion = version;
