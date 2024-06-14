@@ -14,7 +14,7 @@ class Configuration {
     }
     setup() {
         this.HOST = process.env.HOST ? process.env.HOST : "localhost";
-        this.PORT = process.env.PORT ? process.env.PORT : "4006";
+        this.PORT = process.env.PORT ? process.env.PORT : "3000";
         this.TOKEN = process.env.TOKEN ? process.env.TOKEN : "";
         this.LOG_LEVEL = process.env.LOG_LEVEL ? process.env.LOG_LEVEL : "info";
         this.NODE_ENV = process.env.NODE_ENV ? process.env.NODE_ENV : "development";

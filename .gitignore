@@ -1,2 +1,5 @@
 /api/node_modules
 api/node_modules
+
+/api/docker-compose.yml
+api/docker-compose.yml

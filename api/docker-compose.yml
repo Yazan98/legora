@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  app:
+    expose:
+      - "8000"
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8000"
+      - "8000:8000"
+    environment:
+      NODE_ENV: production
+      DB_USER: postgres
+      PORT: 8000
+      DB_USERNAME: postgres
+      DB_PASSWORD: 123123
+      HOST: 0.0.0.0
+      DB_NAME: legora_db
+      DB_DATABASE: legora_db
+      DB_HOST: db
+      DB_PORT: 5432
+      # Additional environment variables
+      TOKEN: RGAPI-01297fba-1fb5-4a9b-b439-ec8a6e225216
+    depends_on:
+      - db
+
+  db:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 123123
+      POSTGRES_DB: legora_db
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+
+volumes:
+  postgres-data:
