@@ -26,6 +26,32 @@ export class MatchManager {
         });
         return Promise.resolve(response);
     }
+    static async getLolLastMatchHistoryId(region, accountId) {
+        const response = new Array();
+        await axios.get(`https://${region}.api.riotgames.com/lol/match/v5/matches/by-puuid/${accountId}/ids?start=0&count=1`, {
+            headers: RiotRequestsManager.getRequestHeader()
+        }).then(result => {
+            if (RiotRequestsManager.isRequestSuccess(result.status)) {
+                for (let i = 0; i < result.data.length; i++) {
+                    response.push(result.data[i]);
+                }
+            }
+        });
+        return Promise.resolve(response);
+    }
+    static async getTftLastMatchHistoryId(region, accountId) {
+        const response = new Array();
+        await axios.get(`https://${region}.api.riotgames.com/tft/match/v1/matches/by-puuid/${accountId}/ids?start=0&count=1`, {
+            headers: RiotRequestsManager.getRequestHeader()
+        }).then(result => {
+            if (RiotRequestsManager.isRequestSuccess(result.status)) {
+                for (let i = 0; i < result.data.length; i++) {
+                    response.push(result.data[i]);
+                }
+            }
+        });
+        return Promise.resolve(response);
+    }
     static async getTftMatchesIds(region, accountId) {
         const response = new Array();
         await axios.get(`https://${region}.api.riotgames.com/tft/match/v1/matches/by-puuid/${accountId}/ids?start=0&count=10`, {

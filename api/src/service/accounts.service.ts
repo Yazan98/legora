@@ -2,15 +2,15 @@ import 'reflect-metadata';
 import {UserRequestBody} from "../request/user.request.body.js";
 import {AuthResponse} from "../response/custom/auth.response.js";
 import {UserModel} from "../models/user.model.js";
-import {SummonerAccountsManager} from "../summoners/summoner.accounts.manager.js";
+import {SummonerAccountsManager} from "../riot/summoner.accounts.manager.js";
 import {SummonerProfile} from "../response/riot/summoner.profile.js";
 import {AppDataSource} from "../config/database.config.js";
 import {TokensManager} from "../config/tokens.manager.js";
 import {LoginRequestBody} from "../request/login.request.body.js";
 import {ProfileInfoResponse, ProfileWidget} from "../response/custom/profile.info.response.js";
 import {imagesVersion} from "../app.js";
-import {ChampionsRequestsManager} from "../summoners/champions.requests.manager.js";
-import {MatchManager} from "../summoners/match.manager.js";
+import {ChampionsRequestsManager} from "../riot/champions.requests.manager.js";
+import {MatchManager} from "../riot/match.manager.js";
 
 export class AccountsService {
 

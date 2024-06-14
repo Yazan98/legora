@@ -7,9 +7,10 @@ import { AuthMiddleware } from "./config/auth.middleware.js";
 import { AppDataSource } from "./config/database.config.js";
 import { baseUrl, HOST, PORT } from "./config/config.js";
 import { AccountsController } from "./controller/accounts.controller.js";
-import { RiotRequestsManager } from "./summoners/riot.requests.manager.js";
+import { RiotRequestsManager } from "./riot/riot.requests.manager.js";
 import { ChampionsController } from "./controller/champions.controller.js";
 import { MatchesController } from "./controller/matches.controller.js";
+import { HomeController } from "./controller/home.controller.js";
 export let imagesVersion = '14.11.1';
 export let championsList = new Array();
 export let tftAugments = new Array();
@@ -34,6 +35,7 @@ app.get('/ping', (req, res) => res.send('Working :P'));
 new AccountsController().initControllerRoutes(app);
 new ChampionsController().initControllerRoutes(app);
 new MatchesController().initControllerRoutes(app);
+new HomeController().initControllerRoutes(app);
 RiotRequestsManager.getCurrentAppVersion()
     .then((version) => {
     imagesVersion = version;

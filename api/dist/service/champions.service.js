@@ -1,5 +1,5 @@
 import { championsList, imagesVersion, tftChampions } from "../app.js";
-import { ChampionsRequestsManager } from "../summoners/champions.requests.manager.js";
+import { ChampionsRequestsManager } from "../riot/champions.requests.manager.js";
 import { AppDataSource } from "../config/database.config.js";
 import { UserModel } from "../models/user.model.js";
 export class ChampionsService {

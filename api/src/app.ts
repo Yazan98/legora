@@ -8,12 +8,13 @@ import {AuthMiddleware} from "./config/auth.middleware.js";
 import {AppDataSource} from "./config/database.config.js";
 import {baseUrl, HOST, PORT} from "./config/config.js";
 import {AccountsController} from "./controller/accounts.controller.js";
-import {RiotRequestsManager} from "./summoners/riot.requests.manager.js";
+import {RiotRequestsManager} from "./riot/riot.requests.manager.js";
 import {ChampionObject} from "./response/riot/champion.model.js";
 import {ChampionsController} from "./controller/champions.controller.js";
 import {MatchesController} from "./controller/matches.controller.js";
 import {TftAugment} from "./response/custom/tft.augment.js";
 import {TftChampionInfo, TftItemInfo} from "./response/riot/tft.match.info.js";
+import {HomeController} from "./controller/home.controller.js";
 
 export let imagesVersion = '14.11.1';
 export let championsList = new Array<ChampionObject>();
@@ -53,6 +54,7 @@ app.get('/ping', (req, res) => res.send('Working :P'))
 new AccountsController().initControllerRoutes(app);
 new ChampionsController().initControllerRoutes(app);
 new MatchesController().initControllerRoutes(app);
+new HomeController().initControllerRoutes(app);
 
 /**
  * Fetch Static Data Once App Running

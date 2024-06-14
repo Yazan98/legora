@@ -1,7 +1,7 @@
 import { AppDataSource } from "../config/database.config.js";
 import { UserModel } from "../models/user.model.js";
-import { MatchManager } from "../summoners/match.manager.js";
-import { SummonerAccountsManager } from "../summoners/summoner.accounts.manager.js";
+import { MatchManager } from "../riot/match.manager.js";
+import { SummonerAccountsManager } from "../riot/summoner.accounts.manager.js";
 export class MatchesService {
     constructor() {
         this.userRepository = AppDataSource.getRepository(UserModel);

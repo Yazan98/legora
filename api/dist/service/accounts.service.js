@@ -1,11 +1,11 @@
 import 'reflect-metadata';
 import { UserModel } from "../models/user.model.js";
-import { SummonerAccountsManager } from "../summoners/summoner.accounts.manager.js";
+import { SummonerAccountsManager } from "../riot/summoner.accounts.manager.js";
 import { AppDataSource } from "../config/database.config.js";
 import { TokensManager } from "../config/tokens.manager.js";
 import { imagesVersion } from "../app.js";
-import { ChampionsRequestsManager } from "../summoners/champions.requests.manager.js";
-import { MatchManager } from "../summoners/match.manager.js";
+import { ChampionsRequestsManager } from "../riot/champions.requests.manager.js";
+import { MatchManager } from "../riot/match.manager.js";
 export class AccountsService {
     constructor() {
         this.userRepository = AppDataSource.getRepository(UserModel);

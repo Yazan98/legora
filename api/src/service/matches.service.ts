@@ -1,8 +1,8 @@
 import {AppDataSource} from "../config/database.config.js";
 import {UserModel} from "../models/user.model.js";
 import {LolMatchesResponse} from "../response/custom/lol.matches.response.js";
-import {MatchManager} from "../summoners/match.manager.js";
-import {SummonerAccountsManager} from "../summoners/summoner.accounts.manager.js";
+import {MatchManager} from "../riot/match.manager.js";
+import {SummonerAccountsManager} from "../riot/summoner.accounts.manager.js";
 import {TftMatchesResponse} from "../response/custom/tft.matches.response.js";
 
 export class MatchesService {
