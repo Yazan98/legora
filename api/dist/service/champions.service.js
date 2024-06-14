@@ -42,5 +42,36 @@ export class ChampionsService {
         }
         return Promise.resolve(results);
     }
+    async getChampionInfoByName(key) {
+        const championInfo = await ChampionsRequestsManager.getChampionInfoByName(key);
+        const spells = new Array();
+        const skins = new Array();
+        championInfo.spells.forEach((spell) => {
+            spells.push({
+                name: spell.name,
+                description: spell.description,
+                image: `https://ddragon.leagueoflegends.com/cdn/${imagesVersion}/img/spell/${spell.image.full}`
+            });
+        });
+        championInfo.skins.forEach((skin) => {
+            skins.push(`http://ddragon.leagueoflegends.com/cdn/img/champion/splash/${key}_${skin.num}.jpg`);
+        });
+        return Promise.resolve({
+            name: championInfo.name,
+            title: championInfo.title,
+            description: championInfo.lore,
+            coverImage: `http://ddragon.leagueoflegends.com/cdn/img/champion/splash/${key}_${championInfo.skins[0].num}.jpg`,
+            passive: {
+                name: championInfo.passive.name,
+                description: championInfo.passive.description,
+                image: `http://ddragon.leagueoflegends.com/cdn/img/champion/passive/${key}_${championInfo.passive.image.full}`,
+            },
+            allyTips: championInfo.allytips,
+            enemiesTips: championInfo.enemytips,
+            spells: spells,
+            skins: skins,
+            info: championInfo.info
+        });
+    }
 }
 //# sourceMappingURL=champions.service.js.map

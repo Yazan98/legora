@@ -13,7 +13,7 @@ export class HomeController extends RiotBaseController implements HomeController
         this.onRegisterGetRequest(app, this.getControllerUrl() + '/feed', (request, response) => {
             this.getHomeFeedTree(this.getUserId(request))
                 .then((result) => {
-                    RiotResponseGenerator.onSendSuccessResponse(true, "Feed Found Successfully!", result, response);
+                    RiotResponseGenerator.onSendSuccessResponse(false, "Feed Found Successfully!", result, response);
                 })
                 .catch((ex) => {
                     RiotResponseGenerator.onSendErrorResponse(ex.message, RiotResponseGenerator.BAD_REQUEST_CODE, response);

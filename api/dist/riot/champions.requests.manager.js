@@ -2,6 +2,16 @@ import axios from "axios";
 import { imagesVersion } from "../app.js";
 import { RiotRequestsManager } from "./riot.requests.manager.js";
 export class ChampionsRequestsManager {
+    static async getChampionInfoByName(name) {
+        let info = null;
+        await axios.get(`https://ddragon.leagueoflegends.com/cdn/${imagesVersion}/data/en_US/champion/${name}.json`)
+            .then((result) => {
+            for (const [key, value] of Object.entries(result.data.data)) {
+                info = value;
+            }
+        });
+        return Promise.resolve(info);
+    }
     static async getChampionCoverImage(championKey) {
         let championCover = "";
         await axios.get(`https://ddragon.leagueoflegends.com/cdn/${imagesVersion}/data/en_US/champion/${championKey}.json`)

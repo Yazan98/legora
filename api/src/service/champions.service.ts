@@ -3,6 +3,8 @@ import {championsList, imagesVersion, tftChampions} from "../app.js";
 import {ChampionsRequestsManager} from "../riot/champions.requests.manager.js";
 import {AppDataSource} from "../config/database.config.js";
 import {UserModel} from "../models/user.model.js";
+import {ChampionInfoResponse, ChampionInfoResponseSpell} from "../response/custom/champion.info.response.js";
+import {RiotChampionInstance, RiotChampionResponse} from "../response/riot/riot.champion.response..js";
 
 export class ChampionsService {
 
@@ -49,4 +51,39 @@ export class ChampionsService {
 
         return Promise.resolve(results);
     }
+
+    async getChampionInfoByName(key: string): Promise<ChampionInfoResponse> {
+        const championInfo: RiotChampionInstance = await ChampionsRequestsManager.getChampionInfoByName(key);
+        const spells = new Array<ChampionInfoResponseSpell>();
+        const skins = new Array<string>();
+        championInfo.spells.forEach((spell) => {
+            spells.push({
+                name: spell.name,
+                description: spell.description,
+                image: `https://ddragon.leagueoflegends.com/cdn/${imagesVersion}/img/spell/${spell.image.full}`
+            });
+        });
+
+        championInfo.skins.forEach((skin) => {
+            skins.push(`http://ddragon.leagueoflegends.com/cdn/img/champion/splash/${key}_${skin.num}.jpg`)
+        });
+
+        return Promise.resolve({
+            name: championInfo.name,
+            title: championInfo.title,
+            description: championInfo.lore,
+            coverImage: `http://ddragon.leagueoflegends.com/cdn/img/champion/splash/${key}_${championInfo.skins[0].num}.jpg`,
+            passive: {
+                name: championInfo.passive.name,
+                description: championInfo.passive.description,
+                image: `http://ddragon.leagueoflegends.com/cdn/img/champion/passive/${key}_${championInfo.passive.image.full}`,
+            },
+            allyTips: championInfo.allytips,
+            enemiesTips: championInfo.enemytips,
+            spells: spells,
+            skins: skins,
+            info: championInfo.info
+        });
+    }
+
 }

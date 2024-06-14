@@ -3,8 +3,21 @@ import {imagesVersion} from "../app.js";
 import {RiotChampionCoverResponse} from "../response/riot/riot.champion.cover.response.js";
 import {FreeChampionsResponse} from "../response/riot/free.champions.response.js";
 import {RiotRequestsManager} from "./riot.requests.manager.js";
+import {RiotChampionInstance, RiotChampionResponse} from "../response/riot/riot.champion.response..js";
 
 export class ChampionsRequestsManager {
+
+    static async getChampionInfoByName(name: string): Promise<RiotChampionInstance> {
+        let info: RiotChampionInstance = null;
+        await axios.get<RiotChampionResponse>(`https://ddragon.leagueoflegends.com/cdn/${imagesVersion}/data/en_US/champion/${name}.json`)
+            .then((result) => {
+                for (const [key, value] of Object.entries(result.data.data)) {
+                    info = value;
+                }
+            })
+
+        return Promise.resolve(info)
+    }
 
     static async getChampionCoverImage(championKey: string): Promise<string> {
         let championCover = "";

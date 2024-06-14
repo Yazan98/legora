@@ -8,7 +8,7 @@ export class TokensManager {
         }, TokensManager.PRIVATE_KEY, {
             expiresIn: "1d",
             algorithm: "HS256",
-            issuer: "Travels Api"
+            issuer: "Legora Api"
         });
     }
     static onGenerateRefreshToken(user) {
@@ -18,7 +18,7 @@ export class TokensManager {
             type: "refresh_token"
         }, TokensManager.PRIVATE_KEY, {
             algorithm: "HS256",
-            issuer: "Travels Api"
+            issuer: "Legora Api"
         });
     }
     static verifyAccessToken(token) {

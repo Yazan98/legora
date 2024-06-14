@@ -10,7 +10,16 @@ export class ChampionsController extends RiotBaseController {
         this.onRegisterGetRequest(app, this.getControllerUrl() + '/lol', (request, response) => {
             this.getChampionsList(this.getUserId(request))
                 .then((result) => {
-                RiotResponseGenerator.onSendSuccessResponse(true, "Champions Found Successfully!", result, response);
+                RiotResponseGenerator.onSendSuccessResponse(false, "Champions Found Successfully!", result, response);
+            })
+                .catch((ex) => {
+                RiotResponseGenerator.onSendErrorResponse(ex.message, RiotResponseGenerator.BAD_REQUEST_CODE, response);
+            });
+        });
+        this.onRegisterGetRequest(app, this.getControllerUrl() + '/lol/:id', (request, response) => {
+            this.getChampionInfoByName(request.params.id)
+                .then((result) => {
+                RiotResponseGenerator.onSendSuccessResponse(false, "Champions Found Successfully!", result, response);
             })
                 .catch((ex) => {
                 RiotResponseGenerator.onSendErrorResponse(ex.message, RiotResponseGenerator.BAD_REQUEST_CODE, response);
@@ -19,7 +28,7 @@ export class ChampionsController extends RiotBaseController {
         this.onRegisterGetRequest(app, this.getControllerUrl() + '/tft', (request, response) => {
             this.getTftChampionsList()
                 .then((result) => {
-                RiotResponseGenerator.onSendSuccessResponse(true, "Champions Found Successfully!", result, response);
+                RiotResponseGenerator.onSendSuccessResponse(false, "Champions Found Successfully!", result, response);
             })
                 .catch((ex) => {
                 RiotResponseGenerator.onSendErrorResponse(ex.message, RiotResponseGenerator.BAD_REQUEST_CODE, response);
@@ -28,6 +37,9 @@ export class ChampionsController extends RiotBaseController {
     }
     getControllerUrl() {
         return this.getControllerPrefixUrl() + "champions";
+    }
+    async getChampionInfoByName(key) {
+        return await this.service.getChampionInfoByName(key);
     }
     async getTftChampionsList() {
         return await this.service.getTftChampionsList();
