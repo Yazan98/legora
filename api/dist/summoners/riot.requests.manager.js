@@ -32,6 +32,51 @@ export class RiotRequestsManager {
         });
         return Promise.resolve(championsList);
     }
+    static async getTftAugments() {
+        let tftAugmentsList = new Array();
+        await axios.get(`https://ddragon.leagueoflegends.com/cdn/14.12.1/data/en_US/tft-augments.json`)
+            .then((result) => {
+            const augments = result.data.data;
+            for (const [key, value] of Object.entries(augments)) {
+                tftAugmentsList.push({
+                    id: key,
+                    name: value.name,
+                    image: `https://ddragon.leagueoflegends.com/cdn/14.12.1/img/tft-augment/${value.image.full}`
+                });
+            }
+        });
+        return Promise.resolve(tftAugmentsList);
+    }
+    static async getTftChampions() {
+        let tftChampionsList = new Array();
+        await axios.get(`https://ddragon.leagueoflegends.com/cdn/14.12.1/data/en_US/tft-champion.json`)
+            .then((result) => {
+            const augments = result.data.data;
+            for (const [key, value] of Object.entries(augments)) {
+                tftChampionsList.push({
+                    id: value.id,
+                    name: value.name,
+                    image: `https://ddragon.leagueoflegends.com/cdn/14.12.1/img/tft-champion/${value.image.full}`
+                });
+            }
+        });
+        return Promise.resolve(tftChampionsList);
+    }
+    static async getTftItems() {
+        let tftChampionsList = new Array();
+        await axios.get(`https://ddragon.leagueoflegends.com/cdn/14.12.1/data/en_US/tft-item.json`)
+            .then((result) => {
+            const augments = result.data.data;
+            for (const [key, value] of Object.entries(augments)) {
+                tftChampionsList.push({
+                    id: key,
+                    name: value.name,
+                    image: `https://ddragon.leagueoflegends.com/cdn/14.12.1/img/tft-item/${value.image.full}`
+                });
+            }
+        });
+        return Promise.resolve(tftChampionsList);
+    }
     static isRequestSuccess(status) {
         return status >= 200 && status < 300;
     }

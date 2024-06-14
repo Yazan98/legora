@@ -1,6 +1,6 @@
 import axios from "axios";
 import { RiotRequestsManager } from "./riot.requests.manager.js";
-import { championsList, imagesVersion } from "../app.js";
+import { championsList, imagesVersion, tftAugments, tftChampions, tftItems } from "../app.js";
 export class MatchManager {
     static async isLolMatchesFound(region, accountId) {
         let isMatchesFound = false;
@@ -26,9 +26,22 @@ export class MatchManager {
         });
         return Promise.resolve(response);
     }
+    static async getTftMatchesIds(region, accountId) {
+        const response = new Array();
+        await axios.get(`https://${region}.api.riotgames.com/tft/match/v1/matches/by-puuid/${accountId}/ids?start=0&count=10`, {
+            headers: RiotRequestsManager.getRequestHeader()
+        }).then(result => {
+            if (RiotRequestsManager.isRequestSuccess(result.status)) {
+                for (let i = 0; i < result.data.length; i++) {
+                    response.push(result.data[i]);
+                }
+            }
+        });
+        return Promise.resolve(response);
+    }
     static async isTftMatchesFound(region, accountId) {
         let isMatchesFound = false;
-        await axios.get(`https://${region}.api.riotgames.com/tft/match/v1/matches/by-puuid/${accountId}/ids?start=0&count=20`, {
+        await axios.get(`https://${region}.api.riotgames.com/tft/match/v1/matches/by-puuid/${accountId}/ids?start=0&count=10`, {
             headers: RiotRequestsManager.getRequestHeader()
         }).then(result => {
             if (RiotRequestsManager.isRequestSuccess(result.status)) {
@@ -36,6 +49,66 @@ export class MatchManager {
             }
         });
         return Promise.resolve(isMatchesFound);
+    }
+    static async getTftMatchesByIds(matchesIds, region, summonerId) {
+        const matches = new Array();
+        for (let i = 0; i < matchesIds.length; i++) {
+            await axios.get(`https://${region}.api.riotgames.com/tft/match/v1/matches/${matchesIds[i]}`, {
+                headers: RiotRequestsManager.getRequestHeader()
+            }).then(result => {
+                if (RiotRequestsManager.isRequestSuccess(result.status)) {
+                    try {
+                        const gameInfo = result.data;
+                        const playerInstance = gameInfo.info.participants.filter((item) => {
+                            return item.puuid == summonerId;
+                        })[0];
+                        const champions = new Array();
+                        const augments = new Array();
+                        playerInstance.units.forEach((item) => {
+                            try {
+                                const championInfo = tftChampions.filter((champion) => champion.id == item.character_id)[0];
+                                const items = new Array();
+                                item.itemNames.forEach((item) => {
+                                    const itemToInsert = tftItems.filter((target) => target.id == item)[0];
+                                    items.push(itemToInsert.image);
+                                });
+                                champions.push({
+                                    image: championInfo.image,
+                                    items: items
+                                });
+                            }
+                            catch (ex) {
+                                console.error(ex);
+                            }
+                        });
+                        playerInstance.augments.forEach((item) => {
+                            try {
+                                const augment = tftAugments.filter((aug) => aug.id == item)[0];
+                                augments.push({
+                                    name: augment.name,
+                                    image: augment.image,
+                                });
+                            }
+                            catch (ex) {
+                                console.error(ex);
+                            }
+                        });
+                        matches.push({
+                            id: matchesIds[i],
+                            date: this.formatTimestampToDate(gameInfo.info.gameCreation),
+                            placement: playerInstance.placement,
+                            units: champions,
+                            augments: augments
+                        });
+                    }
+                    catch (ex) {
+                        console.error(ex);
+                    }
+                }
+            });
+            await this.delay(100);
+        }
+        return Promise.resolve(matches);
     }
     static async getMatchesByIds(matchesIds, region, summonerId) {
         const matches = new Array();

@@ -16,9 +16,21 @@ export class ChampionsController extends RiotBaseController {
                 RiotResponseGenerator.onSendErrorResponse(ex.message, RiotResponseGenerator.BAD_REQUEST_CODE, response);
             });
         });
+        this.onRegisterGetRequest(app, this.getControllerUrl() + '/tft', (request, response) => {
+            this.getTftChampionsList()
+                .then((result) => {
+                RiotResponseGenerator.onSendSuccessResponse(true, "Champions Found Successfully!", result, response);
+            })
+                .catch((ex) => {
+                RiotResponseGenerator.onSendErrorResponse(ex.message, RiotResponseGenerator.BAD_REQUEST_CODE, response);
+            });
+        });
     }
     getControllerUrl() {
         return this.getControllerPrefixUrl() + "champions";
+    }
+    async getTftChampionsList() {
+        return await this.service.getTftChampionsList();
     }
     async getChampionsList(userId) {
         return await this.service.getChampionsList(userId);

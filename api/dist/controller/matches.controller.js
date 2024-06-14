@@ -10,7 +10,16 @@ export class MatchesController extends RiotBaseController {
         this.onRegisterGetRequest(app, this.getControllerUrl() + '/lol', (request, response) => {
             this.getLeagueOfLegendsMatchesByUserId(this.getUserId(request))
                 .then((result) => {
-                RiotResponseGenerator.onSendSuccessResponse(true, "Matches Found Successfully!", result, response);
+                RiotResponseGenerator.onSendSuccessResponse(false, "Matches Found Successfully!", result, response);
+            })
+                .catch((ex) => {
+                RiotResponseGenerator.onSendErrorResponse(ex.message, RiotResponseGenerator.BAD_REQUEST_CODE, response);
+            });
+        });
+        this.onRegisterGetRequest(app, this.getControllerUrl() + '/tft', (request, response) => {
+            this.getTftMatchesByUserId(this.getUserId(request))
+                .then((result) => {
+                RiotResponseGenerator.onSendSuccessResponse(false, "Matches Found Successfully!", result, response);
             })
                 .catch((ex) => {
                 RiotResponseGenerator.onSendErrorResponse(ex.message, RiotResponseGenerator.BAD_REQUEST_CODE, response);
@@ -19,6 +28,9 @@ export class MatchesController extends RiotBaseController {
     }
     getControllerUrl() {
         return this.getControllerPrefixUrl() + "matches";
+    }
+    async getTftMatchesByUserId(userId) {
+        return await this.service.getTftMatchesByUserId(userId);
     }
     async getLeagueOfLegendsMatchesByUserId(userId) {
         return await this.service.getLeagueOfLegendsMatchesByUserId(userId);

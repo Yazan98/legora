@@ -6,5 +6,6 @@ export declare class ChampionsController extends RiotBaseController implements C
     private service;
     initControllerRoutes(app: Express): void;
     getControllerUrl(): string;
+    getTftChampionsList(): Promise<Array<ChampionModel>>;
     getChampionsList(userId: number): Promise<Array<ChampionModel>>;
 }

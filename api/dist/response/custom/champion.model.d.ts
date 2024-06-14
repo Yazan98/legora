@@ -3,4 +3,5 @@ export interface ChampionModel {
     name: string;
     icon: string;
     isFreeToPlay: boolean;
+    type: string;
 }

@@ -12,6 +12,9 @@ import { ChampionsController } from "./controller/champions.controller.js";
 import { MatchesController } from "./controller/matches.controller.js";
 export let imagesVersion = '14.11.1';
 export let championsList = new Array();
+export let tftAugments = new Array();
+export let tftChampions = new Array();
+export let tftItems = new Array();
 const app = express();
 const limiter = rateLimit({
     windowMs: 15 * 60 * 1000,
@@ -39,6 +42,33 @@ RiotRequestsManager.getCurrentAppVersion()
     .catch((ex) => {
     console.error(ex);
     imagesVersion = '14.11.1';
+});
+RiotRequestsManager.getTftAugments()
+    .then((items) => {
+    items.forEach((item) => {
+        tftAugments.push(item);
+    });
+})
+    .catch((ex) => {
+    console.error(ex);
+});
+RiotRequestsManager.getTftChampions()
+    .then((items) => {
+    items.forEach((item) => {
+        tftChampions.push(item);
+    });
+})
+    .catch((ex) => {
+    console.error(ex);
+});
+RiotRequestsManager.getTftItems()
+    .then((items) => {
+    items.forEach((item) => {
+        tftItems.push(item);
+    });
+})
+    .catch((ex) => {
+    console.error(ex);
 });
 function getApplicationChampions(version) {
     RiotRequestsManager.getApplicationChampions(version)

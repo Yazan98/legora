@@ -19,10 +19,24 @@ export class ChampionsController extends RiotBaseController implements Champions
                     RiotResponseGenerator.onSendErrorResponse(ex.message, RiotResponseGenerator.BAD_REQUEST_CODE, response);
                 })
         })
+
+        this.onRegisterGetRequest(app, this.getControllerUrl() + '/tft', (request, response) => {
+            this.getTftChampionsList()
+                .then((result) => {
+                    RiotResponseGenerator.onSendSuccessResponse(true, "Champions Found Successfully!", result, response);
+                })
+                .catch((ex) => {
+                    RiotResponseGenerator.onSendErrorResponse(ex.message, RiotResponseGenerator.BAD_REQUEST_CODE, response);
+                })
+        })
     }
 
     getControllerUrl(): string {
         return this.getControllerPrefixUrl() + "champions";
+    }
+
+    async getTftChampionsList(): Promise<Array<ChampionModel>> {
+        return await this.service.getTftChampionsList();
     }
 
     async getChampionsList(userId: number): Promise<Array<ChampionModel>> {
