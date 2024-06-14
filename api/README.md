@@ -24,3 +24,15 @@ Check Docker Service Running
 ```
 sudo systemctl status docker
 ```
+
+Push Build to Docker
+```
+docker build -t legora-api . --platform=linux/amd64
+docker tag legora-api yt98/legora-api:latest
+docker push yt98/legora-api:latest
+```
+
+Pull Docker Image on Server
+```
+docker pull yt98/legora-api:latest
+```

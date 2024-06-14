@@ -2,13 +2,10 @@ version: '3.8'
 
 services:
   app:
+    image: yt98/legora-api:latest
     expose:
       - "8000"
-    build:
-      context: .
-      dockerfile: Dockerfile
     ports:
-      - "8000"
       - "8000:8000"
     environment:
       NODE_ENV: production
