@@ -25,9 +25,21 @@ export class MatchesController extends RiotBaseController {
                 RiotResponseGenerator.onSendErrorResponse(ex.message, RiotResponseGenerator.BAD_REQUEST_CODE, response);
             });
         });
+        this.onRegisterGetRequest(app, this.getControllerUrl() + '/lol/info/:id', (request, response) => {
+            this.getLeagueOfLegendsMatchInfoById(this.getUserId(request), request.params.id)
+                .then((result) => {
+                RiotResponseGenerator.onSendSuccessResponse(false, "Matches Found Successfully!", result, response);
+            })
+                .catch((ex) => {
+                RiotResponseGenerator.onSendErrorResponse(ex.message, RiotResponseGenerator.BAD_REQUEST_CODE, response);
+            });
+        });
     }
     getControllerUrl() {
         return this.getControllerPrefixUrl() + "matches";
+    }
+    async getLeagueOfLegendsMatchInfoById(userId, id) {
+        return await this.service.getLeagueOfLegendsMatchInfoById(userId, id);
     }
     async getTftMatchesByUserId(userId) {
         return await this.service.getTftMatchesByUserId(userId);

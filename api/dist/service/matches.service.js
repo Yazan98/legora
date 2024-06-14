@@ -18,5 +18,10 @@ export class MatchesService {
         const matchesIds = await MatchManager.getTftMatchesIds(user.summonerRegion, summonerInfo.puuid);
         return await Promise.resolve(MatchManager.getTftMatchesByIds(matchesIds, user.summonerRegion, summonerInfo.puuid));
     }
+    async getLeagueOfLegendsMatchInfoById(userId, matchId) {
+        const user = await this.userRepository.findOne({ where: { id: userId } });
+        const summonerInfo = await SummonerAccountsManager.getSummonerProfileByInfo(user.summonerName, user.summonerRegion, user.summonerServerCode);
+        return await MatchManager.getLolMatchById(matchId, user.summonerRegion, summonerInfo.puuid, user.summonerServerCode);
+    }
 }
 //# sourceMappingURL=matches.service.js.map

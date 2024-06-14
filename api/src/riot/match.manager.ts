@@ -1,10 +1,11 @@
 import axios from "axios";
 import {RiotRequestsManager} from "./riot.requests.manager.js";
-import {LolMatchesResponse} from "../response/custom/lol.matches.response.js";
+import {LolMarchPlayerInfo, LolMatchesResponse, LolMatchInfo} from "../response/custom/lol.matches.response.js";
 import {MatchListResponse} from "../response/riot/match.list.response.js";
 import {championsList, imagesVersion, tftAugments, tftChampions, tftItems} from "../app.js";
 import {TftMatchAugment, TftMatchesResponse, TftMatchUnit} from "../response/custom/tft.matches.response.js";
 import {TftMatchInfo} from "../response/riot/tft.match.info.js";
+import {SummonerAccountsManager} from "./summoner.accounts.manager.js";
 
 export class MatchManager {
     static async isLolMatchesFound(region: string, accountId: string): Promise<boolean> {
@@ -202,6 +203,67 @@ export class MatchManager {
         }
 
         return Promise.resolve(matches);
+    }
+
+    static async getLolMatchById(matchId: string, region: string, summonerId: string, serverCode: string): Promise<LolMatchInfo> {
+        let matchResponse: MatchListResponse = null;
+        await axios.get<MatchListResponse>(`https://${region}.api.riotgames.com/lol/match/v5/matches/${matchId}`, {
+            headers: RiotRequestsManager.getRequestHeader()
+        }).then(result => {
+            if (RiotRequestsManager.isRequestSuccess(result.status)) {
+                matchResponse = result.data;
+            }
+        })
+
+        const players = new Array<LolMarchPlayerInfo>();
+        const playerInstance = matchResponse.info.participants.filter((item) => {
+            return item.puuid == summonerId;
+        })[0];
+
+        const champion = championsList.filter((item) => {
+            return item.key == `${playerInstance.championId}`;
+        })[0];
+
+        matchResponse.info.participants.forEach((player) => {
+                const items = new Array<string>();
+                const champion = championsList.filter((item) => {
+                    return item.key == `${player.championId}`;
+                })[0];
+
+                items.push(`https://ddragon.leagueoflegends.com/cdn/${imagesVersion}/img/item/${player.item0}.png`)
+                items.push(`https://ddragon.leagueoflegends.com/cdn/${imagesVersion}/img/item/${player.item1}.png`)
+                items.push(`https://ddragon.leagueoflegends.com/cdn/${imagesVersion}/img/item/${player.item2}.png`)
+                items.push(`https://ddragon.leagueoflegends.com/cdn/${imagesVersion}/img/item/${player.item3}.png`)
+                items.push(`https://ddragon.leagueoflegends.com/cdn/${imagesVersion}/img/item/${player.item4}.png`)
+                items.push(`https://ddragon.leagueoflegends.com/cdn/${imagesVersion}/img/item/${player.item5}.png`)
+
+
+                players.push({
+                    items: items,
+                    champion: {
+                        name: champion.name,
+                        image: `https://ddragon.leagueoflegends.com/cdn/${imagesVersion}/img/champion/${champion.name.replace(" ", "")}.png`,
+                    },
+                    kills: player.kills,
+                    assists: player.assists,
+                    deaths: player.deaths,
+                    farm: player.totalMinionsKilled,
+                    gold: player.goldEarned,
+                })
+            });
+
+        return Promise.resolve({
+            id: matchId,
+            creationTimestamp: this.formatTimestampToDate(matchResponse.info.gameCreation),
+            mode: matchResponse.info.gameMode,
+            duration: this.formatMinutesToMinutesAndSeconds(matchResponse.info.gameDuration),
+            isVictory: playerInstance.win,
+            champion: {
+                name: champion.name,
+                image: `https://ddragon.leagueoflegends.com/cdn/${imagesVersion}/img/champion/${champion.name.replace(" ", "")}.png`
+            },
+            players: players
+        });
     }
 
     static delay(ms: number): Promise<void> {

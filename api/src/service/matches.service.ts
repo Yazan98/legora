@@ -1,6 +1,6 @@
 import {AppDataSource} from "../config/database.config.js";
 import {UserModel} from "../models/user.model.js";
-import {LolMatchesResponse} from "../response/custom/lol.matches.response.js";
+import {LolMatchesResponse, LolMatchInfo} from "../response/custom/lol.matches.response.js";
 import {MatchManager} from "../riot/match.manager.js";
 import {SummonerAccountsManager} from "../riot/summoner.accounts.manager.js";
 import {TftMatchesResponse} from "../response/custom/tft.matches.response.js";
@@ -32,4 +32,16 @@ export class MatchesService {
         const matchesIds = await MatchManager.getTftMatchesIds(user.summonerRegion, summonerInfo.puuid);
         return await Promise.resolve(MatchManager.getTftMatchesByIds(matchesIds, user.summonerRegion, summonerInfo.puuid));
     }
+
+    async getLeagueOfLegendsMatchInfoById(userId: number, matchId: string): Promise<LolMatchInfo> {
+        const user = await this.userRepository.findOne({ where: {id: userId } });
+        const summonerInfo = await SummonerAccountsManager.getSummonerProfileByInfo(
+            user.summonerName,
+            user.summonerRegion,
+            user.summonerServerCode
+        );
+
+        return await MatchManager.getLolMatchById(matchId, user.summonerRegion, summonerInfo.puuid, user.summonerServerCode);
+    }
+
 }

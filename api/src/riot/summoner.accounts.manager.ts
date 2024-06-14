@@ -5,6 +5,7 @@ import {SummonerIdsResponse} from "../response/riot/summoner.ids.response.js";
 import {ProfileRankInfo} from "../response/custom/profile.info.response.js";
 import {MasteryChampionTopItemResponse} from "../response/riot/mastery.champion.top.item.response.js";
 import {championsList, imagesVersion} from "../app.js";
+import {delay} from "rxjs";
 
 export class SummonerAccountsManager {
 

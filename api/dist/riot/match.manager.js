@@ -180,6 +180,59 @@ export class MatchManager {
         }
         return Promise.resolve(matches);
     }
+    static async getLolMatchById(matchId, region, summonerId, serverCode) {
+        let matchResponse = null;
+        await axios.get(`https://${region}.api.riotgames.com/lol/match/v5/matches/${matchId}`, {
+            headers: RiotRequestsManager.getRequestHeader()
+        }).then(result => {
+            if (RiotRequestsManager.isRequestSuccess(result.status)) {
+                matchResponse = result.data;
+            }
+        });
+        const players = new Array();
+        const playerInstance = matchResponse.info.participants.filter((item) => {
+            return item.puuid == summonerId;
+        })[0];
+        const champion = championsList.filter((item) => {
+            return item.key == `${playerInstance.championId}`;
+        })[0];
+        matchResponse.info.participants.forEach((player) => {
+            const items = new Array();
+            const champion = championsList.filter((item) => {
+                return item.key == `${player.championId}`;
+            })[0];
+            items.push(`https://ddragon.leagueoflegends.com/cdn/${imagesVersion}/img/item/${player.item0}.png`);
+            items.push(`https://ddragon.leagueoflegends.com/cdn/${imagesVersion}/img/item/${player.item1}.png`);
+            items.push(`https://ddragon.leagueoflegends.com/cdn/${imagesVersion}/img/item/${player.item2}.png`);
+            items.push(`https://ddragon.leagueoflegends.com/cdn/${imagesVersion}/img/item/${player.item3}.png`);
+            items.push(`https://ddragon.leagueoflegends.com/cdn/${imagesVersion}/img/item/${player.item4}.png`);
+            items.push(`https://ddragon.leagueoflegends.com/cdn/${imagesVersion}/img/item/${player.item5}.png`);
+            players.push({
+                items: items,
+                champion: {
+                    name: champion.name,
+                    image: `https://ddragon.leagueoflegends.com/cdn/${imagesVersion}/img/champion/${champion.name.replace(" ", "")}.png`,
+                },
+                kills: player.kills,
+                assists: player.assists,
+                deaths: player.deaths,
+                farm: player.totalMinionsKilled,
+                gold: player.goldEarned,
+            });
+        });
+        return Promise.resolve({
+            id: matchId,
+            creationTimestamp: this.formatTimestampToDate(matchResponse.info.gameCreation),
+            mode: matchResponse.info.gameMode,
+            duration: this.formatMinutesToMinutesAndSeconds(matchResponse.info.gameDuration),
+            isVictory: playerInstance.win,
+            champion: {
+                name: champion.name,
+                image: `https://ddragon.leagueoflegends.com/cdn/${imagesVersion}/img/champion/${champion.name.replace(" ", "")}.png`
+            },
+            players: players
+        });
+    }
     static delay(ms) {
         return new Promise(resolve => setTimeout(resolve, ms));
     }
