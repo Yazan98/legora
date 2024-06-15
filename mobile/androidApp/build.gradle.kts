@@ -90,12 +90,11 @@ dependencies {
     kapt(libs.hilt.android.compiler)
     implementation(libs.lottie.compose)
 
-    val coroutine_version = "1.6.4"
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutine_version")
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutine_version")
+    implementation(libs.kotlinx.coroutines.core)
+    implementation(libs.kotlinx.coroutines.android.v164)
 
     implementation(libs.androidx.hilt.navigation.compose)
-    kapt("androidx.hilt:hilt-compiler:1.2.0")
+    kapt(libs.androidx.hilt.compiler)
 }
 
 // Allow references to generated code

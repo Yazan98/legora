@@ -1,6 +1,7 @@
 [versions]
 agp = "8.4.0-rc02"
-kotlin = "1.9.20"
+jetbrainsKotlinxCoroutinesCore = "1.8.1"
+kotlin = "1.9.23"
 compose = "1.5.4"
 compose-compiler = "1.5.4"
 compose-material3 = "1.1.2"
@@ -21,18 +22,31 @@ hiltNavigationCompose = "1.2.0"
 homereferrer = "1.0.0.6"
 installreferrer = "2.2"
 kotlinxCoroutinesAndroid = "1.7.3"
+kotlinxCoroutinesAndroidVersion = "1.6.4"
 kotlinxCoroutinesCore = "1.6.4"
+kotlinxCoroutinesCoreVersion = "1.6.4"
 kotlinxSerializationJson = "1.4.1"
+kotlinxSerializationJsonVersion = "1.4.1"
 ktorClientAndroid = "2.2.1"
+ktorClientAndroidVersion = "2.2.1"
 ktorClientContentNegotiation = "2.2.1"
+ktorClientContentNegotiationVersion = "2.2.1"
 ktorClientCore = "2.2.1"
+ktorClientCoreVersion = "2.2.1"
 ktorClientDarwin = "2.2.1"
+ktorClientDarwinVersion = "2.2.1"
 ktorClientIos = "2.2.1"
+ktorClientIosVersion = "2.2.1"
 ktorClientJson = "2.2.1"
+ktorClientJsonVersion = "2.2.1"
 ktorClientLogging = "2.2.1"
+ktorClientLoggingVersion = "2.2.1"
 ktorClientSerialization = "2.2.1"
 ktorClientSerializationJvm = "2.2.1"
+ktorClientSerializationJvmVersion = "2.2.1"
+ktorClientSerializationVersion = "2.2.1"
 ktorSerializationKotlinxJson = "2.2.1"
+ktorSerializationKotlinxJsonVersion = "2.2.1"
 libraryBase = "1.4.0"
 lifecycleRuntimeKtx = "2.7.0"
 lottieCompose = "6.4.0"
@@ -58,6 +72,11 @@ firebaseAuthKtx = "22.3.1"
 roomRuntime = "2.6.1"
 securityCryptoKtx = "1.1.0-alpha06"
 timber = "5.0.1"
+kotlinxSerialization = "1.7.20"
+hiltVersion = "2.44"
+room = "2.7.0-alpha01"
+ksp = "1.9.23-1.0.19"
+sqlite = "2.5.0-SNAPSHOT"
 
 [libraries]
 accompanist-pager = { module = "com.google.accompanist:accompanist-pager", version.ref = "accompanistPagerIndicators" }
@@ -68,6 +87,7 @@ androidx-appcompat-resources = { module = "androidx.appcompat:appcompat-resource
 androidx-core-ktx = { module = "androidx.core:core-ktx", version.ref = "coreKtx" }
 androidx-credentials = { module = "androidx.credentials:credentials", version.ref = "credentials" }
 androidx-credentials-play-services-auth = { module = "androidx.credentials:credentials-play-services-auth", version.ref = "credentials" }
+androidx-hilt-compiler = { module = "androidx.hilt:hilt-compiler", version.ref = "hiltNavigationCompose" }
 androidx-hilt-navigation-compose = { module = "androidx.hilt:hilt-navigation-compose", version.ref = "hiltNavigationCompose" }
 androidx-lifecycle-runtime-ktx = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref = "lifecycleRuntimeKtx" }
 androidx-multidex = { module = "androidx.multidex:multidex", version.ref = "multidex" }
@@ -102,6 +122,20 @@ compose-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview"
 compose-foundation = { module = "androidx.compose.foundation:foundation", version.ref = "compose" }
 compose-material3 = { module = "androidx.compose.material3:material3", version.ref = "compose-material3" }
 kotlinx-coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "kotlinxCoroutinesAndroid" }
+kotlinx-coroutines-android-v164 = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "kotlinxCoroutinesAndroidVersion" }
+kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlinxCoroutinesCoreVersion" }
+kotlinx-coroutines-core-v181 = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "jetbrainsKotlinxCoroutinesCore" }
+kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinxSerializationJsonVersion" }
+ktor-client-android = { module = "io.ktor:ktor-client-android", version.ref = "ktorClientAndroidVersion" }
+ktor-client-content-negotiation = { module = "io.ktor:ktor-client-content-negotiation", version.ref = "ktorClientContentNegotiationVersion" }
+ktor-client-core = { module = "io.ktor:ktor-client-core", version.ref = "ktorClientCoreVersion" }
+ktor-client-darwin = { module = "io.ktor:ktor-client-darwin", version.ref = "ktorClientDarwinVersion" }
+ktor-client-ios = { module = "io.ktor:ktor-client-ios", version.ref = "ktorClientIosVersion" }
+ktor-client-json = { module = "io.ktor:ktor-client-json", version.ref = "ktorClientJsonVersion" }
+ktor-client-logging = { module = "io.ktor:ktor-client-logging", version.ref = "ktorClientLoggingVersion" }
+ktor-client-serialization = { module = "io.ktor:ktor-client-serialization", version.ref = "ktorClientSerializationVersion" }
+ktor-client-serialization-jvm = { module = "io.ktor:ktor-client-serialization-jvm", version.ref = "ktorClientSerializationJvmVersion" }
+ktor-serialization-kotlinx-json = { module = "io.ktor:ktor-serialization-kotlinx-json", version.ref = "ktorSerializationKotlinxJsonVersion" }
 lottie-compose = { module = "com.airbnb.android:lottie-compose", version.ref = "lottieCompose" }
 play-services-ads = { module = "com.google.android.gms:play-services-ads", version.ref = "playServicesAdsVersion" }
 play-services-auth = { module = "com.google.android.gms:play-services-auth", version.ref = "playServicesAuth" }
@@ -114,6 +148,10 @@ play-services-measurement-api = { group = "com.google.android.gms", name = "play
 firebase-config-ktx = { group = "com.google.firebase", name = "firebase-config-ktx", version.ref = "firebaseConfigKtx" }
 firebase-auth-ktx = { group = "com.google.firebase", name = "firebase-auth-ktx", version.ref = "firebaseAuthKtx" }
 timber = { module = "com.jakewharton.timber:timber", version.ref = "timber" }
+room-runtime = { module = "androidx.room:room-runtime", version.ref = "room" }
+room-runtime-android = { module = "androidx.room:room-runtime-android", version.ref = "room" }
+room-compiler = { module = "androidx.room:room-compiler", version.ref = "room" }
+sqlite-bundled = { module = "androidx.sqlite:sqlite-bundled", version.ref = "sqlite" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
@@ -121,3 +159,7 @@ androidLibrary = { id = "com.android.library", version.ref = "agp" }
 kotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
 kotlinCocoapods = { id = "org.jetbrains.kotlin.native.cocoapods", version.ref = "kotlin" }
+kotlinSerialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlinxSerialization" }
+hiltAndroidPlugin = { id = "com.google.dagger.hilt.android", version.ref = "hiltVersion" }
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+room = { id = "androidx.room", version.ref = "room" }
