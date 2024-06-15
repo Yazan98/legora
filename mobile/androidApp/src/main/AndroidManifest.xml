@@ -4,7 +4,9 @@
     <application
         android:allowBackup="false"
         android:supportsRtl="true"
+        android:name=".LegoraApplication"
         android:theme="@style/AppTheme">
+
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -13,5 +15,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:launchMode="singleTop"
+            android:exported="false"
+            android:name=".screens.RegisterScreen" />
+
     </application>
 </manifest> 
