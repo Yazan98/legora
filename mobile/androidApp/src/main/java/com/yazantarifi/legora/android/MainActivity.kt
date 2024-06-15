@@ -13,19 +13,14 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
-import androidx.compose.material3.*
-import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.bumptech.glide.integration.compose.GlideImage
-import com.yazantarifi.legora.Greeting
 import com.yazantarifi.legora.android.screens.HomeScreen
-import com.yazantarifi.legora.android.screens.RegisterScreen
+import com.yazantarifi.legora.android.screens.AuthScreen
 import com.yazantarifi.legora.context.LegoraStorageProvider
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
@@ -65,7 +60,7 @@ class MainActivity : ComponentActivity() {
     private fun onExecuteScreenNavigation() {
         when (storage.isUserLoggedIn()) {
             true -> startActivity(Intent(this, HomeScreen::class.java))
-            false -> startActivity(Intent(this, RegisterScreen::class.java))
+            false -> startActivity(Intent(this, AuthScreen::class.java))
         }
     }
 

@@ -5,6 +5,10 @@ import com.yazantarifi.legora.models.RiotServer
 
 object RiotServerManager {
 
+    fun getPreSelectedItem(key: String, list: List<String>): Int {
+        return list.indexOfFirst { key == it }
+    }
+
     fun getServersList(): List<RiotServer> {
         return arrayListOf(
             RiotServer("North America", "na1"),

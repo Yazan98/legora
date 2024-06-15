@@ -1,4 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Legora</string>
+    <string name="email">Email Address</string>
+    <string name="email_placeholder">Enter Your Email Address</string>
+    <string name="password">Password</string>
+    <string name="password_placeholder">Enter Your Password</string>
+    <string name="server">Server Name</string>
+    <string name="hint_server">Pick Your Server Name</string>
+    <string name="username">Game Username</string>
+    <string name="region">Region</string>
 </resources>

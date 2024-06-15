@@ -95,6 +95,13 @@ dependencies {
 
     implementation(libs.androidx.hilt.navigation.compose)
     kapt(libs.androidx.hilt.compiler)
+
+    implementation(libs.ktor.client.android)
+    implementation(libs.ktor.client.json)
+    implementation(libs.ktor.client.serialization.jvm)
+    implementation(libs.kotlinx.serialization.json)
+    implementation(libs.ktor.client.content.negotiation)
+    implementation(libs.ktor.serialization.kotlinx.json)
 }
 
 // Allow references to generated code
