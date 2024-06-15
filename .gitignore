@@ -3,3 +3,10 @@ api/node_modules
 
 /api/docker-compose.yml
 api/docker-compose.yml
+
+mobile/shared/build
+/mobile/shared/build
+
+
+mobile/androidApp/build
+/mobile/androidApp/build

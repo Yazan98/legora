@@ -5,8 +5,95 @@ compose = "1.5.4"
 compose-compiler = "1.5.4"
 compose-material3 = "1.1.2"
 androidx-activityCompose = "1.8.0"
+accompanistPagerIndicators = "0.24.8-beta"
+accompanistSystemuicontroller = "0.27.0"
+appcompat = "1.6.1"
+composeVersion = "1.0.0-beta01"
+compressor = "3.0.1"
+coreKtx = "1.13.1"
+credentials = "1.3.0-alpha03"
+firebaseBom = "32.8.1"
+googleid = "1.1.0"
+gson = "2.10.1"
+hiltAndroid = "2.51.1"
+hiltAndroidCompiler = "2.51.1"
+hiltNavigationCompose = "1.2.0"
+homereferrer = "1.0.0.6"
+installreferrer = "2.2"
+kotlinxCoroutinesAndroid = "1.7.3"
+kotlinxCoroutinesCore = "1.6.4"
+kotlinxSerializationJson = "1.4.1"
+ktorClientAndroid = "2.2.1"
+ktorClientContentNegotiation = "2.2.1"
+ktorClientCore = "2.2.1"
+ktorClientDarwin = "2.2.1"
+ktorClientIos = "2.2.1"
+ktorClientJson = "2.2.1"
+ktorClientLogging = "2.2.1"
+ktorClientSerialization = "2.2.1"
+ktorClientSerializationJvm = "2.2.1"
+ktorSerializationKotlinxJson = "2.2.1"
+libraryBase = "1.4.0"
+lifecycleRuntimeKtx = "2.7.0"
+lottieCompose = "6.4.0"
+multidex = "2.0.1"
+navigationCompose = "2.7.7"
+ossLicensesPlugin = "0.10.6"
+crashlytics = "2.9.9"
+gms = "4.4.1"
+firebasePrefs = "1.4.2"
+playServicesAds = "23.0.0"
+playServicesAdsIdentifier = "18.0.1"
+playServicesAdsVersion = "23.1.0"
+playServicesAuth = "21.1.0"
+playServicesBase = "18.4.0"
+playServicesOssLicenses = "17.0.1"
+reviewKtx = "2.0.1"
+firebaseCommonKtx = "20.4.3"
+firebaseMessagingKtx = "23.4.1"
+firebaseCrashlyticsKtx = "18.6.4"
+playServicesMeasurementApi = "21.6.2"
+firebaseConfigKtx = "21.6.3"
+firebaseAuthKtx = "22.3.1"
+roomRuntime = "2.6.1"
+securityCryptoKtx = "1.1.0-alpha06"
+timber = "5.0.1"
 
 [libraries]
+accompanist-pager = { module = "com.google.accompanist:accompanist-pager", version.ref = "accompanistPagerIndicators" }
+accompanist-pager-indicators = { module = "com.google.accompanist:accompanist-pager-indicators", version.ref = "accompanistPagerIndicators" }
+accompanist-systemuicontroller = { module = "com.google.accompanist:accompanist-systemuicontroller", version.ref = "accompanistSystemuicontroller" }
+androidx-appcompat = { module = "androidx.appcompat:appcompat", version.ref = "appcompat" }
+androidx-appcompat-resources = { module = "androidx.appcompat:appcompat-resources", version.ref = "appcompat" }
+androidx-core-ktx = { module = "androidx.core:core-ktx", version.ref = "coreKtx" }
+androidx-credentials = { module = "androidx.credentials:credentials", version.ref = "credentials" }
+androidx-credentials-play-services-auth = { module = "androidx.credentials:credentials-play-services-auth", version.ref = "credentials" }
+androidx-hilt-navigation-compose = { module = "androidx.hilt:hilt-navigation-compose", version.ref = "hiltNavigationCompose" }
+androidx-lifecycle-runtime-ktx = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref = "lifecycleRuntimeKtx" }
+androidx-multidex = { module = "androidx.multidex:multidex", version.ref = "multidex" }
+androidx-navigation-compose = { module = "androidx.navigation:navigation-compose", version.ref = "navigationCompose" }
+androidx-navigation-safe-args-gradle-plugin = { module = "androidx.navigation:navigation-safe-args-gradle-plugin", version.ref = "navigationCompose" }
+androidx-room-compiler = { module = "androidx.room:room-compiler", version.ref = "roomRuntime" }
+androidx-room-ktx = { module = "androidx.room:room-ktx", version.ref = "roomRuntime" }
+androidx-room-runtime = { module = "androidx.room:room-runtime", version.ref = "roomRuntime" }
+androidx-security-crypto-ktx = { module = "androidx.security:security-crypto-ktx", version.ref = "securityCryptoKtx" }
+compose = { module = "com.github.bumptech.glide:compose", version.ref = "composeVersion" }
+compressor = { module = "id.zelory:compressor", version.ref = "compressor" }
+firebase-analytics-ktx = { module = "com.google.firebase:firebase-analytics-ktx" }
+firebase-bom = { module = "com.google.firebase:firebase-bom", version.ref = "firebaseBom" }
+firebase-config = { module = "com.google.firebase:firebase-config" }
+firebase-functions-ktx = { module = "com.google.firebase:firebase-functions-ktx" }
+firebase-messaging = { module = "com.google.firebase:firebase-messaging" }
+firebase-perf-ktx = { module = "com.google.firebase:firebase-perf-ktx" }
+google-firebase-auth-ktx = { module = "com.google.firebase:firebase-auth-ktx" }
+google-firebase-crashlytics-ktx = { module = "com.google.firebase:firebase-crashlytics-ktx" }
+google-firebase-perf-ktx = { module = "com.google.firebase:firebase-perf-ktx" }
+googleid = { module = "com.google.android.libraries.identity.googleid:googleid", version.ref = "googleid" }
+gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
+hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hiltAndroid" }
+hilt-android-compiler = { module = "com.google.dagger:hilt-android-compiler", version.ref = "hiltAndroidCompiler" }
+homereferrer = { module = "com.miui.referrer:homereferrer", version.ref = "homereferrer" }
+installreferrer = { module = "com.android.installreferrer:installreferrer", version.ref = "installreferrer" }
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
 androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "androidx-activityCompose" }
 compose-ui = { module = "androidx.compose.ui:ui", version.ref = "compose" }
@@ -14,6 +101,19 @@ compose-ui-tooling = { module = "androidx.compose.ui:ui-tooling", version.ref = 
 compose-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview", version.ref = "compose" }
 compose-foundation = { module = "androidx.compose.foundation:foundation", version.ref = "compose" }
 compose-material3 = { module = "androidx.compose.material3:material3", version.ref = "compose-material3" }
+kotlinx-coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "kotlinxCoroutinesAndroid" }
+lottie-compose = { module = "com.airbnb.android:lottie-compose", version.ref = "lottieCompose" }
+play-services-ads = { module = "com.google.android.gms:play-services-ads", version.ref = "playServicesAdsVersion" }
+play-services-auth = { module = "com.google.android.gms:play-services-auth", version.ref = "playServicesAuth" }
+play-services-base = { module = "com.google.android.gms:play-services-base", version.ref = "playServicesBase" }
+review-ktx = { module = "com.google.android.play:review-ktx", version.ref = "reviewKtx" }
+firebase-common-ktx = { group = "com.google.firebase", name = "firebase-common-ktx", version.ref = "firebaseCommonKtx" }
+firebase-messaging-ktx = { group = "com.google.firebase", name = "firebase-messaging-ktx", version.ref = "firebaseMessagingKtx" }
+firebase-crashlytics-ktx = { group = "com.google.firebase", name = "firebase-crashlytics-ktx", version.ref = "firebaseCrashlyticsKtx" }
+play-services-measurement-api = { group = "com.google.android.gms", name = "play-services-measurement-api", version.ref = "playServicesMeasurementApi" }
+firebase-config-ktx = { group = "com.google.firebase", name = "firebase-config-ktx", version.ref = "firebaseConfigKtx" }
+firebase-auth-ktx = { group = "com.google.firebase", name = "firebase-auth-ktx", version.ref = "firebaseAuthKtx" }
+timber = { module = "com.jakewharton.timber:timber", version.ref = "timber" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
