@@ -60,7 +60,7 @@
     "webpack-cli": "^4.5.0"
   },
   "scripts": {
-    "start": "NODE_ENV=production node dist/app.js",
+    "start": "node dist/app.js",
     "prod": "NODE_ENV=production node dist/api.bundle.js",
     "dev": "build:dev & tsc --declaration --declarationDir & nodemon dist/app.js",
     "build:dev": "rimraf dist && tsc -p .",

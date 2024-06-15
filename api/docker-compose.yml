@@ -21,7 +21,7 @@ services:
       DB_DATABASE: legora_db
       DB_HOST: db
       DB_PORT: 5432
-      TOKEN: RGAPI-01297fba-1fb5-4a9b-b439-ec8a6e225216
+      TOKEN: RGAPI-a274348c-ada5-4d04-815b-899cc5dfb472
     depends_on:
       - db
 
