@@ -24,11 +24,17 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.bumptech.glide.integration.compose.GlideImage
 import com.yazantarifi.legora.Greeting
+import com.yazantarifi.legora.android.screens.HomeScreen
 import com.yazantarifi.legora.android.screens.RegisterScreen
+import com.yazantarifi.legora.context.LegoraStorageProvider
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
+
+    @Inject
+    lateinit var storage: LegoraStorageProvider
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -57,7 +63,10 @@ class MainActivity : ComponentActivity() {
     }
 
     private fun onExecuteScreenNavigation() {
-
+        when (storage.isUserLoggedIn()) {
+            true -> startActivity(Intent(this, HomeScreen::class.java))
+            false -> startActivity(Intent(this, RegisterScreen::class.java))
+        }
     }
 
 }

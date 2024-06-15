@@ -21,5 +21,10 @@
             android:exported="false"
             android:name=".screens.RegisterScreen" />
 
+        <activity
+            android:launchMode="singleTop"
+            android:exported="false"
+            android:name=".screens.HomeScreen" />
+
     </application>
 </manifest> 
