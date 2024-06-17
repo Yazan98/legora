@@ -10,4 +10,7 @@
     <string name="username">Game Username</string>
     <string name="region">Region</string>
     <string name="failed_to_auth">Auth Failed, Please Try Again Later</string>
+    <string name="home">Feed</string>
+    <string name="explore">Champions</string>
+    <string name="profile">Profile</string>
 </resources>

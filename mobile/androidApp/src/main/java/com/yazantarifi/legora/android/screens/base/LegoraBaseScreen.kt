@@ -34,11 +34,14 @@ abstract class LegoraBaseScreen: ComponentActivity() {
         }
 
         setContent {
+            OnPreScreenStarted()
             val scaffoldState = rememberScaffoldState()
             LegoraAppTheme {
                 Scaffold(
                     scaffoldState = scaffoldState,
-                    modifier = Modifier.fillMaxSize().background(MaterialTheme.colorScheme.background),
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .background(MaterialTheme.colorScheme.background),
                     topBar = {
                         if (!TextUtils.isEmpty(getToolbarTitle())) {
                             CenterAlignedTopAppBar(title = {
@@ -51,6 +54,11 @@ abstract class LegoraBaseScreen: ComponentActivity() {
                                 }
                             })
                         }
+                    },
+                    bottomBar = {
+                         if (isBottomBarEnabled()) {
+                             OnBottomBarEnabled()
+                         }
                     },
                     contentColor = MaterialTheme.colorScheme.background,
                     backgroundColor = MaterialTheme.colorScheme.background,
@@ -72,12 +80,22 @@ abstract class LegoraBaseScreen: ComponentActivity() {
         return true
     }
 
+    open fun isBottomBarEnabled(): Boolean {
+        return false
+    }
+
     open fun getToolbarTitle(): String {
         return getString(R.string.app_name)
     }
 
     @Composable
+    open fun OnBottomBarEnabled() = Unit
+
+    @Composable
     abstract fun OnStartScreenContent(scaffoldState: ScaffoldState, paddingValues: PaddingValues)
+
+    @Composable
+    open fun OnPreScreenStarted() = Unit
 
     @Composable
     open fun OnScreenStarted() = Unit
