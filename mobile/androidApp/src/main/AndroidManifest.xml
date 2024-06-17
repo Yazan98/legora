@@ -8,6 +8,8 @@
         android:allowBackup="false"
         android:supportsRtl="true"
         android:name=".LegoraApplication"
+        android:requestLegacyExternalStorage="true"
+        android:preserveLegacyExternalStorage="true"
         android:usesCleartextTraffic="true"
         android:networkSecurityConfig="@xml/network_configurations"
         android:theme="@style/AppTheme">

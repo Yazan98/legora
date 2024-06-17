@@ -45,7 +45,7 @@ class HomeScreenItemsProvider constructor(
             }
 
             val diffCachingTime = currentTimestamp - lastRequestedTimestamp
-            if (diffCachingTime > 600000) {
+            if (diffCachingTime > 0) {
                 getHomeScreenInternetContent(currentTimestamp, onSuccess)
             } else {
                 getCachedHomeScreenWidgets(currentTimestamp, onSuccess)
@@ -109,6 +109,7 @@ class HomeScreenItemsProvider constructor(
                 }
 
                 "players" -> {
+                    items.add(HomeTitleWidget("Popular Players"))
                     items.add(HomePlayersWidget(it.items ?: arrayListOf()))
                 }
             }
