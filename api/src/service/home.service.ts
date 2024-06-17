@@ -148,16 +148,6 @@ export class HomeService {
                 "rank_name": "Challenger"
             },
             {
-                "game_key": "tft",
-                "game_name": "Teamfight Tactics",
-                "image": "",
-                "name": "Mismatched Socks",
-                "youtube_link": "https://youtube.com/channel/mismatchedsocks",
-                "twitch_link": "https://twitch.tv/mismatchedsocks",
-                "twitter_link": "https://twitter.com/mismatchedsocks",
-                "rank_name": "Challenger"
-            },
-            {
                 "game_key": "lol",
                 "game_name": "League of Legends",
                 "image": "https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/9/9a/TL_Bwipo_2022_Split_2.png/revision/latest?cb=20220619000015",
@@ -231,16 +221,6 @@ export class HomeService {
                 "twitch_link": "https://twitch.tv/scarra",
                 "twitter_link": "https://twitter.com/scarra",
                 "rank_name": "Master"
-            },
-            {
-                "game_key": "tft",
-                "game_name": "Teamfight Tactics",
-                "image": "",
-                "name": "Soju",
-                "youtube_link": "https://youtube.com/channel/soju",
-                "twitch_link": "https://twitch.tv/soju",
-                "twitter_link": "https://twitter.com/soju_tft",
-                "rank_name": "Challenger"
             },
             {
                 "game_key": "lol",

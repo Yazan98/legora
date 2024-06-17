@@ -6,6 +6,9 @@ import androidx.compose.material.Text
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.TextUnit
+import androidx.compose.ui.unit.TextUnitType
 import androidx.compose.ui.unit.dp
 
 @Composable
@@ -15,6 +18,8 @@ fun HomeTitleWidgetComposable(title: String) {
         color = MaterialTheme.colorScheme.onPrimary,
         modifier = Modifier
             .fillMaxWidth()
-            .padding(top = 20.dp, bottom = 5.dp)
+            .padding(top = 20.dp, bottom = 5.dp),
+        fontWeight = FontWeight.Bold,
+        fontSize = TextUnit(18f, TextUnitType.Sp)
     )
 }
