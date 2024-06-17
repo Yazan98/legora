@@ -73,7 +73,6 @@ abstract class LegoraRequestManager<RequestBody, Response>: CoroutineScope {
 
     abstract fun getRequestInfo(
         requestBody: RequestBody,
-        url: String,
         onSuccess: (Response) -> Unit,
         onError: (Throwable) -> Unit,
     )

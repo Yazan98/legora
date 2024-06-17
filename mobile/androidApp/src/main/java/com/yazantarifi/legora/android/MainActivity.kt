@@ -62,6 +62,7 @@ class MainActivity : ComponentActivity() {
             true -> startActivity(Intent(this, HomeScreen::class.java))
             false -> startActivity(Intent(this, AuthScreen::class.java))
         }
+        finish()
     }
 
 }

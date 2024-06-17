@@ -14,7 +14,6 @@ class GetHomeFeedRequestManager constructor(
 
     override fun getRequestInfo(
         requestBody: Unit,
-        url: String,
         onSuccess: (LegoraResponse<HomeFeedResponse>) -> Unit,
         onError: (Throwable) -> Unit
     ) {
@@ -23,7 +22,7 @@ class GetHomeFeedRequestManager constructor(
                 httpClient,
                 Unit,
                 LegoraSharedStorage.requestsListener?.getRequestHeaders() ?: hashMapOf(),
-                getFullRequestUrl(url),
+                getFullRequestUrl("api/v1/home/feed"),
                 onSuccess,
                 onError
             )

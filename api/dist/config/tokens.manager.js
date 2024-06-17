@@ -28,9 +28,11 @@ export class TokensManager {
             if (type !== "access_token") {
                 return 0;
             }
+            console.log(`Token Content : ${tokenPayload}`);
             return tokenPayload.id;
         }
         catch (error) {
+            console.error(error);
             return 0;
         }
     }

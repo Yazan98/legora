@@ -14,7 +14,6 @@ class GetChampionInfoByNameRequestManager constructor(
 
     override fun getRequestInfo(
         requestBody: String,
-        url: String,
         onSuccess: (LegoraResponse<ChampionInfo>) -> Unit,
         onError: (Throwable) -> Unit
     ) {
@@ -23,7 +22,7 @@ class GetChampionInfoByNameRequestManager constructor(
                 httpClient,
                 Unit,
                 LegoraSharedStorage.requestsListener?.getRequestHeaders() ?: hashMapOf(),
-                getFullRequestUrl(url),
+                getFullRequestUrl("api/v1/champions/lol/${requestBody}"),
                 onSuccess,
                 onError
             )

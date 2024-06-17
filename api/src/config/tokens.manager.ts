@@ -38,9 +38,12 @@ export class TokensManager {
                 return 0;
             }
 
+            console.log(`Token Content : ${tokenPayload}`)
+
             // @ts-ignore
             return tokenPayload.id;
         } catch (error) {
+            console.error(error)
             return 0
         }
     }

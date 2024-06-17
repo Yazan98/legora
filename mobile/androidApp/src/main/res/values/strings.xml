@@ -9,4 +9,5 @@
     <string name="hint_server">Pick Your Server Name</string>
     <string name="username">Game Username</string>
     <string name="region">Region</string>
+    <string name="failed_to_auth">Auth Failed, Please Try Again Later</string>
 </resources>

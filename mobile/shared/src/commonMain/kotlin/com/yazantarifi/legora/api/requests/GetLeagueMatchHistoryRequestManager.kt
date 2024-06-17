@@ -14,7 +14,6 @@ class GetLeagueMatchHistoryRequestManager constructor(
 
     override fun getRequestInfo(
         requestBody: Unit,
-        url: String,
         onSuccess: (LegoraResponse<ArrayList<LegoraMatch>>) -> Unit,
         onError: (Throwable) -> Unit
     ) {
@@ -23,7 +22,7 @@ class GetLeagueMatchHistoryRequestManager constructor(
                 httpClient,
                 requestBody,
                 LegoraSharedStorage.requestsListener?.getRequestHeaders() ?: hashMapOf(),
-                getFullRequestUrl(url),
+                getFullRequestUrl("api/v1/matches/lol"),
                 onSuccess,
                 onError
             )

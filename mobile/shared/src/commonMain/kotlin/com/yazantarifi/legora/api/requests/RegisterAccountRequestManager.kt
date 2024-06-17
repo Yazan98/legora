@@ -15,7 +15,6 @@ class RegisterAccountRequestManager constructor(
 
     override fun getRequestInfo(
         requestBody: RegisterAccountRequestBody,
-        url: String,
         onSuccess: (LegoraResponse<AuthResponse>) -> Unit,
         onError: (Throwable) -> Unit
     ) {
@@ -24,7 +23,7 @@ class RegisterAccountRequestManager constructor(
                 httpClient,
                 requestBody,
                 LegoraSharedStorage.requestsListener?.getRequestHeaders() ?: hashMapOf(),
-                getFullRequestUrl(url),
+                getFullRequestUrl("api/v1/accounts/register"),
                 onSuccess,
                 onError
             )

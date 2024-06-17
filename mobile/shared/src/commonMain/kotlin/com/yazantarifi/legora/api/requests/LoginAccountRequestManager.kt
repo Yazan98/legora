@@ -15,7 +15,6 @@ class LoginAccountRequestManager constructor(
 
     override fun getRequestInfo(
         requestBody: LoginRequestBody,
-        url: String,
         onSuccess: (LegoraResponse<AuthResponse>) -> Unit,
         onError: (Throwable) -> Unit
     ) {
@@ -24,7 +23,7 @@ class LoginAccountRequestManager constructor(
                 httpClient,
                 requestBody,
                 LegoraSharedStorage.requestsListener?.getRequestHeaders() ?: hashMapOf(),
-                getFullRequestUrl(url),
+                getFullRequestUrl("api/v1/accounts/login"),
                 onSuccess,
                 onError
             )

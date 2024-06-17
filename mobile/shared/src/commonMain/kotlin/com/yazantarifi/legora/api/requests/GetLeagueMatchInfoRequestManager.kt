@@ -11,20 +11,19 @@ import kotlinx.coroutines.launch
 
 class GetLeagueMatchInfoRequestManager constructor(
     private val httpClient: HttpClient
-): LegoraRequestManager<Unit, LegoraResponse<LegoraMatchInfo>>() {
+): LegoraRequestManager<String, LegoraResponse<LegoraMatchInfo>>() {
 
     override fun getRequestInfo(
-        requestBody: Unit,
-        url: String,
+        requestBody: String,
         onSuccess: (LegoraResponse<LegoraMatchInfo>) -> Unit,
         onError: (Throwable) -> Unit
     ) {
         launch {
             onExecuteRequest<Unit, LegoraResponse<LegoraMatchInfo>>(
                 httpClient,
-                requestBody,
+                Unit,
                 LegoraSharedStorage.requestsListener?.getRequestHeaders() ?: hashMapOf(),
-                getFullRequestUrl(url),
+                getFullRequestUrl("api/v1/matches/lol/info/${requestBody}"),
                 onSuccess,
                 onError
             )
