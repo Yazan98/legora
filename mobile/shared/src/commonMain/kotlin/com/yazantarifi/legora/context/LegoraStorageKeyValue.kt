@@ -10,6 +10,10 @@ class LegoraStorageKeyValue constructor(private val context: LegoraContext) {
         context.putString(key, value)
     }
 
+    fun put(key: String, value: Long) {
+        context.putLong(key, value)
+    }
+
     fun put(key: String, value: Boolean) {
         context.putBool(key, value)
     }
@@ -18,6 +22,8 @@ class LegoraStorageKeyValue constructor(private val context: LegoraContext) {
 
 
     fun getString(key: String) : String? = context.getString(key)
+
+    fun getLong(key: String) : Long? = context.getLong(key)
 
 
     fun getBool(key: String, default: Boolean): Boolean = context.getBool(key, default)

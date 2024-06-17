@@ -10,15 +10,15 @@ import kotlinx.coroutines.launch
 
 class GetHomeFeedRequestManager constructor(
     private val httpClient: HttpClient
-): LegoraRequestManager<Unit, LegoraResponse<HomeFeedResponse>>() {
+): LegoraRequestManager<Unit, LegoraResponse<List<HomeFeedResponse>>>() {
 
     override fun getRequestInfo(
         requestBody: Unit,
-        onSuccess: (LegoraResponse<HomeFeedResponse>) -> Unit,
+        onSuccess: (LegoraResponse<List<HomeFeedResponse>>) -> Unit,
         onError: (Throwable) -> Unit
     ) {
         launch {
-            onExecuteRequest<Unit, LegoraResponse<HomeFeedResponse>>(
+            onExecuteRequest<Unit, LegoraResponse<List<HomeFeedResponse>>>(
                 httpClient,
                 Unit,
                 LegoraSharedStorage.requestsListener?.getRequestHeaders() ?: hashMapOf(),

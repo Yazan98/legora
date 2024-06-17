@@ -13,6 +13,14 @@ class LegoraStorageProvider constructor(private val provider: LegoraStorageKeyVa
         return getAccessToken().isNotEmpty()
     }
 
+    override fun updateHomeFeedTimestamp(newTimestamp: Long) {
+        provider.put("home_caching_time", newTimestamp)
+    }
+
+    override fun getHomeFeedTimestamp(): Long {
+        return provider.getLong("home_caching_time") ?: 0L
+    }
+
 }
 
 interface LegoraStorageProviderImplementation {
@@ -21,4 +29,9 @@ interface LegoraStorageProviderImplementation {
     fun getAccessToken(): String
 
     fun isUserLoggedIn(): Boolean
+
+    fun updateHomeFeedTimestamp(newTimestamp: Long)
+
+    fun getHomeFeedTimestamp(): Long
+
 }

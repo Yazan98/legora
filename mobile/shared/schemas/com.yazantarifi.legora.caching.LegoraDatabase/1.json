@@ -2,11 +2,40 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "d41d8cd98f00b204e9800998ecf8427e",
-    "entities": [],
+    "identityHash": "2349d127a8607687c1cba7cc5dbb2933",
+    "entities": [
+      {
+        "tableName": "HomeScreenWidgetEntity",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`widgetIndex` INTEGER NOT NULL, `widget_name` TEXT, `widget_payload` TEXT, PRIMARY KEY(`widgetIndex`))",
+        "fields": [
+          {
+            "fieldPath": "widgetIndex",
+            "columnName": "widgetIndex",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "name",
+            "columnName": "widget_name",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "payload",
+            "columnName": "widget_payload",
+            "affinity": "TEXT"
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "widgetIndex"
+          ]
+        }
+      }
+    ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'd41d8cd98f00b204e9800998ecf8427e')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '2349d127a8607687c1cba7cc5dbb2933')"
     ]
   }
 }

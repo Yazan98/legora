@@ -17,8 +17,16 @@ actual fun LegoraContext.putString(key: String, value: String) {
     getSpEditor().putString(key, value).apply()
 }
 
+actual fun LegoraContext.putLong(key: String, value: Long) {
+    getSpEditor().putLong(key, value).apply()
+}
+
 actual fun LegoraContext.getString(key: String): String? {
     return  getSp().getString(key, null)
+}
+
+actual fun LegoraContext.getLong(key: String): Long? {
+    return  getSp().getLong(key, 0L)
 }
 
 actual fun LegoraContext.putBool(key: String, value: Boolean) {

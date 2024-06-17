@@ -17,8 +17,16 @@ actual fun LegoraContext.putString(key: String, value: String) {
     NSUserDefaults.standardUserDefaults.setObject(value, key)
 }
 
+actual fun LegoraContext.putLong(key: String, value: Long) {
+    NSUserDefaults.standardUserDefaults.setDouble(value.toDouble(), key)
+}
+
 actual fun LegoraContext.getString(key: String): String? {
     return NSUserDefaults.standardUserDefaults.stringForKey(key)
+}
+
+actual fun LegoraContext.getLong(key: String): Long? {
+    return NSUserDefaults.standardUserDefaults.doubleForKey(key).toLong()
 }
 
 actual fun LegoraContext.putBool(key: String, value: Boolean) {
