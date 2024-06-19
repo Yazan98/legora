@@ -28,7 +28,7 @@ export class MatchManager {
     }
     static async getLolLastMatchHistoryId(region, accountId) {
         const response = new Array();
-        await axios.get(`https://${region}.api.riotgames.com/lol/match/v5/matches/by-puuid/${accountId}/ids?start=0&count=1`, {
+        await axios.get(`https://${region}.api.riotgames.com/lol/match/v5/matches/by-puuid/${accountId}/ids?start=0&count=2`, {
             headers: RiotRequestsManager.getRequestHeader()
         }).then(result => {
             if (RiotRequestsManager.isRequestSuccess(result.status)) {
@@ -41,7 +41,7 @@ export class MatchManager {
     }
     static async getTftLastMatchHistoryId(region, accountId) {
         const response = new Array();
-        await axios.get(`https://${region}.api.riotgames.com/tft/match/v1/matches/by-puuid/${accountId}/ids?start=0&count=1`, {
+        await axios.get(`https://${region}.api.riotgames.com/tft/match/v1/matches/by-puuid/${accountId}/ids?start=0&count=2`, {
             headers: RiotRequestsManager.getRequestHeader()
         }).then(result => {
             if (RiotRequestsManager.isRequestSuccess(result.status)) {

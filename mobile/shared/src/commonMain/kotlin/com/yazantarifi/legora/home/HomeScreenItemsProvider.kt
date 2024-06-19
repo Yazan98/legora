@@ -108,6 +108,17 @@ class HomeScreenItemsProvider constructor(
                     }
                 }
 
+                "match_history" -> {
+                    items.add(HomeTitleWidget("Match History"))
+                    it.lolMatches?.forEach {
+                        items.add(it)
+                    }
+
+                    it.tftMatches?.forEach {
+                        items.add(it)
+                    }
+                }
+
                 "players" -> {
                     items.add(HomeTitleWidget("Popular Players"))
                     items.add(HomePlayersWidget(it.items ?: arrayListOf()))
