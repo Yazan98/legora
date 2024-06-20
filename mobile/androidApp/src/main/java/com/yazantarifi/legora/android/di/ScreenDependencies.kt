@@ -6,6 +6,7 @@ import com.yazantarifi.legora.api.requests.GetHomeFeedRequestManager
 import com.yazantarifi.legora.api.requests.LoginAccountRequestManager
 import com.yazantarifi.legora.api.requests.RegisterAccountRequestManager
 import com.yazantarifi.legora.caching.dao.HomeScreenDao
+import com.yazantarifi.legora.champions.LegoraChampionsItemsProvider
 import com.yazantarifi.legora.context.LegoraStorageProvider
 import com.yazantarifi.legora.home.HomeScreenItemsProvider
 import dagger.Module
@@ -42,6 +43,11 @@ object ScreenDependencies {
         homeScreenDao: HomeScreenDao
     ): HomeScreenItemsProvider {
         return HomeScreenItemsProvider(httpClient, storageProvider, homeScreenDao, context as LegoraApplication)
+    }
+
+    @Provides
+    fun getLegoraChampionsItemsProvider(httpClient: HttpClient): LegoraChampionsItemsProvider {
+        return LegoraChampionsItemsProvider(httpClient)
     }
 
 }

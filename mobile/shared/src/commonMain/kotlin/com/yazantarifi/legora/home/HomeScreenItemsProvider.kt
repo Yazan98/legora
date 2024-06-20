@@ -110,11 +110,19 @@ class HomeScreenItemsProvider constructor(
 
                 "match_history" -> {
                     items.add(HomeTitleWidget("Match History"))
-                    it.lolMatches?.forEach {
+                    it.lolMatches?.getOrNull(0)?.let {
                         items.add(it)
                     }
 
-                    it.tftMatches?.forEach {
+                    it.tftMatches?.getOrNull(0)?.let {
+                        items.add(it)
+                    }
+
+                    it.lolMatches?.getOrNull(1)?.let {
+                        items.add(it)
+                    }
+
+                    it.tftMatches?.getOrNull(1)?.let {
                         items.add(it)
                     }
                 }
