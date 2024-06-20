@@ -1,9 +1,7 @@
 package com.yazantarifi.legora.home.items
 
-import kotlinx.serialization.Serializable
-
 interface HomeScreenItem {
-    fun getType(): HomeScreenItemType
+    fun getHomeWidgetType(): HomeScreenItemType
 }
 
 enum class HomeScreenItemType {

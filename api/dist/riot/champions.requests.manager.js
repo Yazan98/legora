@@ -17,7 +17,7 @@ export class ChampionsRequestsManager {
         await axios.get(`https://ddragon.leagueoflegends.com/cdn/${imagesVersion}/data/en_US/champion/${championKey}.json`)
             .then((result) => {
             for (const [key, value] of Object.entries(result.data.data)) {
-                championCover = `http://ddragon.leagueoflegends.com/cdn/img/champion/splash/${championKey}_${value.skins[0].num}.jpg`;
+                championCover = `https://ddragon.leagueoflegends.com/cdn/img/champion/splash/${championKey}_${value.skins[0].num}.jpg`;
             }
         });
         return Promise.resolve(championCover);

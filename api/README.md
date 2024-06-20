@@ -36,3 +36,8 @@ Pull Docker Image on Server
 ```
 docker pull yt98/legora-api:latest
 ```
+
+Docker Image Start Command
+```
+docker compose up --build -d
+```

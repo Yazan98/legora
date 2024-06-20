@@ -39,14 +39,14 @@ fun HomeFeedScreen(viewModel: HomeViewModel) {
             .fillMaxSize()
             .padding(horizontal = 10.dp)) {
             items(viewModel.homeScreenWidgetsState) { item ->
-                when (item.getType()) {
+                when (item.getHomeWidgetType()) {
                     HomeScreenItemType.MATCH_HISTORY_TFT -> TftMatchHistoryComposable(item as LegoraTftMatch)
                     HomeScreenItemType.MATCH_HISTORY_LOL -> LeagueMatchHistoryComposable(item as LegoraMatch)
                     HomeScreenItemType.PLAYERS_WIDGET -> HomePlayersWidgetComposable(item as HomePlayersWidget)
                     HomeScreenItemType.USER_WIDGET -> HomeUserWidgetComposable(item as HomeUserWidget)
                     HomeScreenItemType.LATEST_NEWS_WIDGET -> HomeNewsItemComposable(item as HomeNewsItemWidget)
                     HomeScreenItemType.TITLE_WIDGET -> HomeTitleWidgetComposable(title = (item as HomeTitleWidget).title)
-                    else -> Text(text = "${item.getType()}", color = Color.Black)
+                    else -> Text(text = "${item.getHomeWidgetType()}", color = Color.Black)
                 }
             }
         }

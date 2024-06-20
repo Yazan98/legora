@@ -10,7 +10,7 @@ data class HomeUserWidget(
     val server: String,
     val image: String
 ): HomeScreenItem {
-    override fun getType(): HomeScreenItemType {
+    override fun getHomeWidgetType(): HomeScreenItemType {
         return HomeScreenItemType.USER_WIDGET
     }
 }

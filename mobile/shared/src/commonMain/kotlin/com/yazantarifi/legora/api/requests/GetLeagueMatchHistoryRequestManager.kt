@@ -29,6 +29,21 @@ class GetLeagueMatchHistoryRequestManager constructor(
         }
     }
 
+    override suspend fun getSuspendedRequestInfo(
+        requestBody: Unit,
+        onSuccess: (LegoraResponse<ArrayList<LegoraMatch>>) -> Unit,
+        onError: (Throwable) -> Unit
+    ) {
+        onExecuteRequest<Unit, LegoraResponse<ArrayList<LegoraMatch>>>(
+            httpClient,
+            requestBody,
+            LegoraSharedStorage.requestsListener?.getRequestHeaders() ?: hashMapOf(),
+            getFullRequestUrl("api/v1/matches/lol"),
+            onSuccess,
+            onError
+        )
+    }
+
     override fun getRequestMethod(): LegoraRequestMethod {
         return LegoraRequestMethod.GET
     }

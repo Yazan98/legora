@@ -65,18 +65,18 @@ export class ChampionsService {
         });
 
         championInfo.skins.forEach((skin) => {
-            skins.push(`http://ddragon.leagueoflegends.com/cdn/img/champion/splash/${key}_${skin.num}.jpg`)
+            skins.push(`https://ddragon.leagueoflegends.com/cdn/img/champion/splash/${key}_${skin.num}.jpg`)
         });
 
         return Promise.resolve({
             name: championInfo.name,
             title: championInfo.title,
             description: championInfo.lore,
-            coverImage: `http://ddragon.leagueoflegends.com/cdn/img/champion/splash/${key}_${championInfo.skins[0].num}.jpg`,
+            coverImage: `https://ddragon.leagueoflegends.com/cdn/img/champion/splash/${key}_${championInfo.skins[0].num}.jpg`,
             passive: {
                 name: championInfo.passive.name,
                 description: championInfo.passive.description,
-                image: `http://ddragon.leagueoflegends.com/cdn/img/champion/passive/${key}_${championInfo.passive.image.full}`,
+                image: `https://ddragon.leagueoflegends.com/cdn/img/champion/passive/${key}_${championInfo.passive.image.full}`,
             },
             allyTips: championInfo.allytips,
             enemiesTips: championInfo.enemytips,

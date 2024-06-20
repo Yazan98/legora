@@ -1,5 +1,7 @@
 package com.yazantarifi.legora.response
 
+import com.yazantarifi.legora.account.AccountItem
+import com.yazantarifi.legora.account.AccountItemType
 import com.yazantarifi.legora.home.items.HomeScreenItem
 import com.yazantarifi.legora.home.items.HomeScreenItemType
 import kotlinx.serialization.SerialName
@@ -19,8 +21,8 @@ data class LegoraMatch(
     @SerialName("isVictory") val isVictory: Boolean? = false,
     @SerialName("items") val items: List<String>? = null,
     @SerialName("champion") val champion: LegoraMatchChampion? = null,
-): HomeScreenItem {
-    override fun getType(): HomeScreenItemType {
+): HomeScreenItem, AccountItem {
+    override fun getHomeWidgetType(): HomeScreenItemType {
         return HomeScreenItemType.MATCH_HISTORY_LOL
     }
 
@@ -44,6 +46,10 @@ data class LegoraMatch(
             }
             else -> value.toString() // Return the number as it is for values less than 1000
         }
+    }
+
+    override fun getType(): AccountItemType {
+        return AccountItemType.LOL_MATCH_HISTORY
     }
 }
 

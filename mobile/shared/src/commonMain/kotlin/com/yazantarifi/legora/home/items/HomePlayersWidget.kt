@@ -9,7 +9,7 @@ import kotlinx.serialization.Serializable
 data class HomePlayersWidget(
     val items: List<HomeWidgetItem>
 ): HomeScreenItem {
-    override fun getType(): HomeScreenItemType {
+    override fun getHomeWidgetType(): HomeScreenItemType {
         return HomeScreenItemType.PLAYERS_WIDGET
     }
 

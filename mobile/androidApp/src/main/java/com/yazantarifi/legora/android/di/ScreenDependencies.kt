@@ -1,6 +1,7 @@
 package com.yazantarifi.legora.android.di
 
 import android.content.Context
+import com.yazantarifi.legora.account.LegoraAccountItemsProvider
 import com.yazantarifi.legora.android.LegoraApplication
 import com.yazantarifi.legora.api.requests.GetHomeFeedRequestManager
 import com.yazantarifi.legora.api.requests.LoginAccountRequestManager
@@ -43,6 +44,11 @@ object ScreenDependencies {
         homeScreenDao: HomeScreenDao
     ): HomeScreenItemsProvider {
         return HomeScreenItemsProvider(httpClient, storageProvider, homeScreenDao, context as LegoraApplication)
+    }
+
+    @Provides
+    fun getLegoraAccountItemsProvider(httpClient: HttpClient): LegoraAccountItemsProvider {
+        return LegoraAccountItemsProvider(httpClient)
     }
 
     @Provides

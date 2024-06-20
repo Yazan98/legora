@@ -15,8 +15,6 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.IO
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.launch
-import kotlinx.serialization.encodeToString
-import kotlinx.serialization.json.Json
 import kotlin.coroutines.CoroutineContext
 
 class HomeScreenItemsProvider constructor(
@@ -72,7 +70,7 @@ class HomeScreenItemsProvider constructor(
     private fun onCacheScreenWidgets(items: List<HomeScreenItem>) {
         try {
             val cachingItems = items.mapIndexed { index, value ->
-                HomeScreenWidgetEntity(index, value.getType().name, jsonConverterListener.getJsonString(value))
+                HomeScreenWidgetEntity(index, value.getHomeWidgetType().name, jsonConverterListener.getJsonString(value))
             }
 
             // Delete Prev Cached Widgets

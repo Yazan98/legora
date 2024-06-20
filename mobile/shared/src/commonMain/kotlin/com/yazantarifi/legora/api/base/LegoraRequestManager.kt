@@ -71,6 +71,12 @@ abstract class LegoraRequestManager<RequestBody, Response>: CoroutineScope {
         return LegoraApiConstants.BASE_URL + path
     }
 
+    open suspend fun getSuspendedRequestInfo(
+        requestBody: RequestBody,
+        onSuccess: (Response) -> Unit,
+        onError: (Throwable) -> Unit,
+    ) = Unit
+
     abstract fun getRequestInfo(
         requestBody: RequestBody,
         onSuccess: (Response) -> Unit,

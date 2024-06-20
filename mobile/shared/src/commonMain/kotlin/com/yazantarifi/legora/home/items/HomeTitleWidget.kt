@@ -8,7 +8,7 @@ import kotlinx.serialization.Serializable
 data class HomeTitleWidget(
     val title: String
 ): HomeScreenItem {
-    override fun getType(): HomeScreenItemType {
+    override fun getHomeWidgetType(): HomeScreenItemType {
         return HomeScreenItemType.TITLE_WIDGET
     }
 }

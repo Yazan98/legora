@@ -30,6 +30,21 @@ class GetTacticesMatchHistoryRequestManager constructor(
         }
     }
 
+    override suspend fun getSuspendedRequestInfo(
+        requestBody: Unit,
+        onSuccess: (LegoraResponse<ArrayList<LegoraTftMatch>>) -> Unit,
+        onError: (Throwable) -> Unit
+    ) {
+        onExecuteRequest<Unit, LegoraResponse<ArrayList<LegoraTftMatch>>>(
+            httpClient,
+            requestBody,
+            LegoraSharedStorage.requestsListener?.getRequestHeaders() ?: hashMapOf(),
+            getFullRequestUrl("api/v1/matches/tft"),
+            onSuccess,
+            onError
+        )
+    }
+
     override fun getRequestMethod(): LegoraRequestMethod {
         return LegoraRequestMethod.GET
     }

@@ -9,7 +9,7 @@ import kotlinx.serialization.Serializable
 data class HomeNewsItemWidget(
     val item: HomeWidgetItem
 ): HomeScreenItem {
-    override fun getType(): HomeScreenItemType {
+    override fun getHomeWidgetType(): HomeScreenItemType {
         return HomeScreenItemType.LATEST_NEWS_WIDGET
     }
 }

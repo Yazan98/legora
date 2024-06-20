@@ -1,5 +1,7 @@
 package com.yazantarifi.legora.response
 
+import com.yazantarifi.legora.account.AccountItem
+import com.yazantarifi.legora.account.AccountItemType
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
@@ -7,7 +9,12 @@ import kotlinx.serialization.Serializable
 data class AccountInfoResponse(
     @SerialName("user") val user: LegoraAccount? = null,
     @SerialName("summonerInfo") val summonerInfo: AccountPropsResponse? = null
-)
+): AccountItem {
+    override fun getType(): AccountItemType {
+        return AccountItemType.HEADER
+    }
+
+}
 
 @Serializable
 data class AccountPropsResponse(

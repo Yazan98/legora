@@ -29,6 +29,21 @@ class GetProfileInfoRequestManager constructor(
         }
     }
 
+    override suspend fun getSuspendedRequestInfo(
+        requestBody: Unit,
+        onSuccess: (LegoraResponse<AccountInfoResponse>) -> Unit,
+        onError: (Throwable) -> Unit
+    ) {
+        onExecuteRequest<Unit, LegoraResponse<AccountInfoResponse>>(
+            httpClient,
+            requestBody,
+            LegoraSharedStorage.requestsListener?.getRequestHeaders() ?: hashMapOf(),
+            getFullRequestUrl("api/v1/accounts/info"),
+            onSuccess,
+            onError
+        )
+    }
+
     override fun getRequestMethod(): LegoraRequestMethod {
         return LegoraRequestMethod.GET
     }

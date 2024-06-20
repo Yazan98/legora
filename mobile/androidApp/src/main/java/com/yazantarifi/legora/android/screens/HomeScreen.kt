@@ -26,6 +26,7 @@ import androidx.navigation.compose.rememberNavController
 import com.bumptech.glide.integration.compose.GlideImage
 import com.yazantarifi.legora.android.fragments.HomeChampionsScreen
 import com.yazantarifi.legora.android.fragments.HomeFeedScreen
+import com.yazantarifi.legora.android.fragments.ProfileScreenComposable
 import com.yazantarifi.legora.android.models.HomeTabItem
 import com.yazantarifi.legora.android.screens.base.LegoraBaseScreen
 import com.yazantarifi.legora.android.viewModels.HomeViewModel
@@ -55,7 +56,7 @@ class HomeScreen: LegoraBaseScreen() {
                 }
 
                 composable(HomeTabItem.ProfileScreenRoute.tabRoute) {
-//                    ProfileScreenComposable()
+                    ProfileScreenComposable(screenViewModel)
                 }
             }
         }
