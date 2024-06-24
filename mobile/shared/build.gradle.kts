@@ -29,6 +29,7 @@ kotlin {
         framework {
             baseName = "shared"
             isStatic = true
+            linkerOpts.add("-lsqlite3") // add sqlite
         }
     }
     
