@@ -2,40 +2,60 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "2349d127a8607687c1cba7cc5dbb2933",
+    "identityHash": "6ca9d24d61ddca5697ccca3b90ebe6dc",
     "entities": [
       {
-        "tableName": "HomeScreenWidgetEntity",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`widgetIndex` INTEGER NOT NULL, `widget_name` TEXT, `widget_payload` TEXT, PRIMARY KEY(`widgetIndex`))",
+        "tableName": "champions",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`name` TEXT NOT NULL, `id` INTEGER NOT NULL, `icon` TEXT NOT NULL, `type` TEXT NOT NULL, `order` INTEGER NOT NULL, `isFreeToPlay` INTEGER NOT NULL, PRIMARY KEY(`name`))",
         "fields": [
           {
-            "fieldPath": "widgetIndex",
-            "columnName": "widgetIndex",
+            "fieldPath": "name",
+            "columnName": "name",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "id",
+            "columnName": "id",
             "affinity": "INTEGER",
             "notNull": true
           },
           {
-            "fieldPath": "name",
-            "columnName": "widget_name",
-            "affinity": "TEXT"
+            "fieldPath": "icon",
+            "columnName": "icon",
+            "affinity": "TEXT",
+            "notNull": true
           },
           {
-            "fieldPath": "payload",
-            "columnName": "widget_payload",
-            "affinity": "TEXT"
+            "fieldPath": "type",
+            "columnName": "type",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "order",
+            "columnName": "order",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "isFreeToPlay",
+            "columnName": "isFreeToPlay",
+            "affinity": "INTEGER",
+            "notNull": true
           }
         ],
         "primaryKey": {
           "autoGenerate": false,
           "columnNames": [
-            "widgetIndex"
+            "name"
           ]
         }
       }
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '2349d127a8607687c1cba7cc5dbb2933')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '6ca9d24d61ddca5697ccca3b90ebe6dc')"
     ]
   }
 }

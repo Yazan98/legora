@@ -41,7 +41,7 @@ export class ChampionsService {
         for (let i = 0; i < champions.length; i++) {
             const champion = champions[i];
             results.push({
-                id: Number(champion.id),
+                id: i,
                 name: champion.name,
                 icon: champion.image,
                 isFreeToPlay: false,

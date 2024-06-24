@@ -5,7 +5,7 @@ import android.content.Context
 import com.yazantarifi.legora.LegoraAndroidDatabaseManager
 import com.yazantarifi.legora.api.LegoraHttpClient
 import com.yazantarifi.legora.caching.LegoraDatabase
-import com.yazantarifi.legora.caching.dao.HomeScreenDao
+import com.yazantarifi.legora.caching.dao.ChampionsDao
 import com.yazantarifi.legora.context.LegoraStorageKeyValue
 import com.yazantarifi.legora.context.LegoraStorageProvider
 import dagger.Module
@@ -44,8 +44,8 @@ object ApplicationDependencies {
 
     @Provides
     @Singleton
-    fun getHomeScreenDao(database: LegoraDatabase): HomeScreenDao {
-        return database.getHomeDao()
+    fun getChampionsDao(database: LegoraDatabase): ChampionsDao {
+        return database.getChampionsDao()
     }
 
 }

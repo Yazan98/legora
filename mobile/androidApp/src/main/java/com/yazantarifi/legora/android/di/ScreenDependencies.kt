@@ -6,7 +6,7 @@ import com.yazantarifi.legora.android.LegoraApplication
 import com.yazantarifi.legora.api.requests.GetHomeFeedRequestManager
 import com.yazantarifi.legora.api.requests.LoginAccountRequestManager
 import com.yazantarifi.legora.api.requests.RegisterAccountRequestManager
-import com.yazantarifi.legora.caching.dao.HomeScreenDao
+import com.yazantarifi.legora.caching.dao.ChampionsDao
 import com.yazantarifi.legora.champions.LegoraChampionsItemsProvider
 import com.yazantarifi.legora.context.LegoraStorageProvider
 import com.yazantarifi.legora.home.HomeScreenItemsProvider
@@ -38,12 +38,10 @@ object ScreenDependencies {
 
     @Provides
     fun getHomeScreenItemsProvider(
-        @ApplicationContext context: Context,
         httpClient: HttpClient,
         storageProvider: LegoraStorageProvider,
-        homeScreenDao: HomeScreenDao
     ): HomeScreenItemsProvider {
-        return HomeScreenItemsProvider(httpClient, storageProvider, homeScreenDao, context as LegoraApplication)
+        return HomeScreenItemsProvider(httpClient, storageProvider)
     }
 
     @Provides
@@ -52,8 +50,8 @@ object ScreenDependencies {
     }
 
     @Provides
-    fun getLegoraChampionsItemsProvider(httpClient: HttpClient): LegoraChampionsItemsProvider {
-        return LegoraChampionsItemsProvider(httpClient)
+    fun getLegoraChampionsItemsProvider(httpClient: HttpClient, storageProvider: LegoraStorageProvider, dao: ChampionsDao): LegoraChampionsItemsProvider {
+        return LegoraChampionsItemsProvider(httpClient, dao, storageProvider)
     }
 
 }

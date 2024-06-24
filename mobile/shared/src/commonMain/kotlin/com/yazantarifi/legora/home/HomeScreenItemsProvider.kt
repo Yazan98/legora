@@ -1,8 +1,6 @@
 package com.yazantarifi.legora.home
 
 import com.yazantarifi.legora.api.requests.GetHomeFeedRequestManager
-import com.yazantarifi.legora.caching.dao.HomeScreenDao
-import com.yazantarifi.legora.caching.models.HomeScreenWidgetEntity
 import com.yazantarifi.legora.context.LegoraStorageProvider
 import com.yazantarifi.legora.home.items.HomeNewsItemWidget
 import com.yazantarifi.legora.home.items.HomePlayersWidget
@@ -20,8 +18,6 @@ import kotlin.coroutines.CoroutineContext
 class HomeScreenItemsProvider constructor(
     private val httpClient: HttpClient,
     private val storageProvider: LegoraStorageProvider,
-    private val homeScreenCachingDao: HomeScreenDao,
-    private val jsonConverterListener: LegoraJsonConverterListener
 ): CoroutineScope {
 
     private val repository: GetHomeFeedRequestManager by lazy {
@@ -36,56 +32,14 @@ class HomeScreenItemsProvider constructor(
         onSuccess: (List<HomeScreenItem>) -> Unit
     ) {
         launch(Dispatchers.IO) {
-            val lastRequestedTimestamp = storageProvider.getHomeFeedTimestamp()
-            if (lastRequestedTimestamp <= 0L) {
-                getHomeScreenInternetContent(currentTimestamp, onSuccess)
-                return@launch
-            }
-
-            val diffCachingTime = currentTimestamp - lastRequestedTimestamp
-            if (diffCachingTime > 0) {
-                getHomeScreenInternetContent(currentTimestamp, onSuccess)
-            } else {
-                getCachedHomeScreenWidgets(currentTimestamp, onSuccess)
-            }
-        }
-    }
-
-    private fun getCachedHomeScreenWidgets(currentTimestamp: Long, onSuccess: (List<HomeScreenItem>) -> Unit) {
-        val items = homeScreenCachingDao.getHomeWidgets()
-        if (items.isEmpty()) {
             getHomeScreenInternetContent(currentTimestamp, onSuccess)
         }
-        // Parse Cached Widgets
     }
 
     private fun getHomeScreenInternetContent(currentTimestamp: Long, onSuccess: (List<HomeScreenItem>) -> Unit) {
         getHomeScreenResponse(currentTimestamp) {
             val homeScreenWidgets = getHomeScreenWidgetsBuilder(it)
-            onCacheScreenWidgets(homeScreenWidgets)
             onSuccess(homeScreenWidgets)
-        }
-    }
-
-    private fun onCacheScreenWidgets(items: List<HomeScreenItem>) {
-        try {
-            val cachingItems = items.mapIndexed { index, value ->
-                HomeScreenWidgetEntity(index, value.getHomeWidgetType().name, jsonConverterListener.getJsonString(value))
-            }
-
-            // Delete Prev Cached Widgets
-            val items = homeScreenCachingDao.getHomeWidgets()
-            if (items.isNotEmpty()) {
-                items.forEach {
-                    homeScreenCachingDao.deleteAllHomeWidgets(it)
-                }
-            }
-
-            println("Home Feed Caching Items : $cachingItems")
-            homeScreenCachingDao.onInsertHomeWidgets(cachingItems)
-        } catch (ex: Exception) {
-            println(ex.message)
-            ex.printStackTrace()
         }
     }
 
@@ -137,7 +91,6 @@ class HomeScreenItemsProvider constructor(
     private fun getHomeScreenResponse(currentTimestamp: Long, onSuccess: (List<HomeFeedResponse>) -> Unit) {
         repository.getRequestInfo(Unit, {
             it.data?.let { it1 -> onSuccess(it1) }
-            storageProvider.updateHomeFeedTimestamp(currentTimestamp)
         }, {
             // Handle Error
         })

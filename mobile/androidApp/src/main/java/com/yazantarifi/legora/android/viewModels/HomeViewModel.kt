@@ -60,7 +60,7 @@ class HomeViewModel @Inject constructor(
         }
 
         isLoading.value = true
-        championsListProvider.getScreenItems {
+        championsListProvider.getScreenItems(System.currentTimeMillis()) {
             viewModelScope.launch(Dispatchers.Main) {
                 isLoading.value = false
                 championsItemsState.addAll(it)
