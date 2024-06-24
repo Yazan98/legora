@@ -35,5 +35,24 @@ export class ChampionsRequestsManager {
         });
         return Promise.resolve(resultsToReturn);
     }
+    static getChampionIcon(championIcon) {
+        const isLinkForcedToLowerCase = championIcon.includes("'");
+        const imageToLoad = championIcon
+            .replace(".", "")
+            .replace("'", "")
+            .replace("&", "");
+        const firstChar = imageToLoad.charAt(0).toUpperCase();
+        const restOfString = imageToLoad.slice(1);
+        const image = firstChar + restOfString.trim().replace(" ", "");
+        if (isLinkForcedToLowerCase) {
+            const imagePath = image.toLowerCase();
+            const firstChar = imagePath.charAt(0).toUpperCase();
+            const restOfString = imagePath.slice(1);
+            return firstChar + restOfString.trim().replace(" ", "");
+        }
+        else {
+            return image;
+        }
+    }
 }
 //# sourceMappingURL=champions.requests.manager.js.map

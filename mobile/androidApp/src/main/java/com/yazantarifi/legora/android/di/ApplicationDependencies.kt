@@ -1,11 +1,11 @@
 package com.yazantarifi.legora.android.di
 
+import android.app.Application
 import android.content.Context
 import com.yazantarifi.legora.LegoraAndroidDatabaseManager
 import com.yazantarifi.legora.api.LegoraHttpClient
 import com.yazantarifi.legora.caching.LegoraDatabase
 import com.yazantarifi.legora.caching.dao.HomeScreenDao
-import com.yazantarifi.legora.context.LegoraContext
 import com.yazantarifi.legora.context.LegoraStorageKeyValue
 import com.yazantarifi.legora.context.LegoraStorageProvider
 import dagger.Module
@@ -24,7 +24,7 @@ object ApplicationDependencies {
     @Provides
     @Singleton
     fun getLegoraStorageProvider(@ApplicationContext context: Context): LegoraStorageProvider {
-        return LegoraStorageProvider(LegoraStorageKeyValue(context as LegoraContext))
+        return LegoraStorageProvider(LegoraStorageKeyValue(context as Application))
     }
 
     @Provides

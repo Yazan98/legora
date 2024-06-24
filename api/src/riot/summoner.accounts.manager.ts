@@ -6,6 +6,7 @@ import {ProfileRankInfo} from "../response/custom/profile.info.response.js";
 import {MasteryChampionTopItemResponse} from "../response/riot/mastery.champion.top.item.response.js";
 import {championsList, imagesVersion} from "../app.js";
 import {delay} from "rxjs";
+import {ChampionsRequestsManager} from "./champions.requests.manager.js";
 
 export class SummonerAccountsManager {
 
@@ -55,7 +56,7 @@ export class SummonerAccountsManager {
                     })
 
                     masteryChampions.push({
-                        icon: `https://ddragon.leagueoflegends.com/cdn/${imagesVersion}/img/champion/${championInstance[0].name.replace(" ", "")}.png`,
+                        icon: `https://ddragon.leagueoflegends.com/cdn/${imagesVersion}/img/champion/${ChampionsRequestsManager.getChampionIcon(championInstance[0].name)}.png`,
                         name: championInstance[0].name,
                         id: masteryRecord.championId,
                         level: masteryRecord.championLevel,

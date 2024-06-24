@@ -45,4 +45,30 @@ export class ChampionsRequestsManager {
 
         return Promise.resolve(resultsToReturn);
     }
+
+    static getChampionIcon(championIcon: string): string {
+        const isLinkForcedToLowerCase = championIcon.includes("'");
+        const imageToLoad = championIcon
+            .replace(".", "")
+            .replace("'", "")
+            .replace("&", "")
+
+        // Extract the first character and convert it to uppercase.
+        const firstChar = imageToLoad.charAt(0).toUpperCase();
+
+        // Extract the rest of the string.
+        const restOfString = imageToLoad.slice(1);
+
+        // Concatenate the first character (capitalized) with the rest of the string.
+        const image = firstChar + restOfString.trim().replace(" ", "");
+        if (isLinkForcedToLowerCase) {
+            const imagePath = image.toLowerCase();
+            const firstChar = imagePath.charAt(0).toUpperCase();
+            const restOfString = imagePath.slice(1);
+            return firstChar + restOfString.trim().replace(" ", "");
+        } else {
+            return image;
+        }
+    }
+
 }

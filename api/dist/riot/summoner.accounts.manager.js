@@ -1,6 +1,7 @@
 import axios from "axios";
 import { RiotRequestsManager } from "./riot.requests.manager.js";
 import { championsList, imagesVersion } from "../app.js";
+import { ChampionsRequestsManager } from "./champions.requests.manager.js";
 export class SummonerAccountsManager {
     static async getSummonerProfileByInfo(summonerName, region, serverCode) {
         const accountTagline = summonerName.replace("#", "/");
@@ -43,7 +44,7 @@ export class SummonerAccountsManager {
                         return value.key === `${masteryRecord.championId}`;
                     });
                     masteryChampions.push({
-                        icon: `https://ddragon.leagueoflegends.com/cdn/${imagesVersion}/img/champion/${championInstance[0].name.replace(" ", "")}.png`,
+                        icon: `https://ddragon.leagueoflegends.com/cdn/${imagesVersion}/img/champion/${ChampionsRequestsManager.getChampionIcon(championInstance[0].name)}.png`,
                         name: championInstance[0].name,
                         id: masteryRecord.championId,
                         level: masteryRecord.championLevel,

@@ -20,7 +20,7 @@ export class ChampionsService {
             results.push({
                 id: Number(champion.key),
                 name: champion.name,
-                icon: `https://ddragon.leagueoflegends.com/cdn/${imagesVersion}/img/champion/${champion.name.replace(" ", "")}.png`,
+                icon: `https://ddragon.leagueoflegends.com/cdn/${imagesVersion}/img/champion/${ChampionsRequestsManager.getChampionIcon(champion.name)}.png`,
                 isFreeToPlay: freeChampionsIds.includes(Number(champion.key)),
                 type: 'lol'
             });

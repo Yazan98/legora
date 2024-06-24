@@ -51,7 +51,7 @@ fun AccountHeaderComposable(header: AccountInfoResponse) {
 
     Column(modifier = Modifier
         .fillMaxWidth()
-        .padding(top = 250.dp)
+        .padding(top = 50.dp, start = 10.dp)
     ) {
         Row {
             Text(

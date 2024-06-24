@@ -6,6 +6,7 @@ import {championsList, imagesVersion, tftAugments, tftChampions, tftItems} from 
 import {TftMatchAugment, TftMatchesResponse, TftMatchUnit} from "../response/custom/tft.matches.response.js";
 import {TftMatchInfo} from "../response/riot/tft.match.info.js";
 import {SummonerAccountsManager} from "./summoner.accounts.manager.js";
+import {ChampionsRequestsManager} from "./champions.requests.manager.js";
 
 export class MatchManager {
     static async isLolMatchesFound(region: string, accountId: string): Promise<boolean> {
@@ -193,7 +194,7 @@ export class MatchManager {
                         isVictory: playerInstance.win,
                         champion: {
                             name: champion.name,
-                            image: `https://ddragon.leagueoflegends.com/cdn/${imagesVersion}/img/champion/${champion.name.replace(" ", "")}.png`
+                            image: `https://ddragon.leagueoflegends.com/cdn/${imagesVersion}/img/champion/${ChampionsRequestsManager.getChampionIcon(champion.name)}.png`
                         },
                         items: items
                     })
@@ -242,7 +243,7 @@ export class MatchManager {
                     items: items,
                     champion: {
                         name: champion.name,
-                        image: `https://ddragon.leagueoflegends.com/cdn/${imagesVersion}/img/champion/${champion.name.replace(" ", "")}.png`,
+                        image: `https://ddragon.leagueoflegends.com/cdn/${imagesVersion}/img/champion/${ChampionsRequestsManager.getChampionIcon(champion.name)}.png`,
                     },
                     kills: player.kills,
                     assists: player.assists,
@@ -260,7 +261,7 @@ export class MatchManager {
             isVictory: playerInstance.win,
             champion: {
                 name: champion.name,
-                image: `https://ddragon.leagueoflegends.com/cdn/${imagesVersion}/img/champion/${champion.name.replace(" ", "")}.png`
+                image: `https://ddragon.leagueoflegends.com/cdn/${imagesVersion}/img/champion/${ChampionsRequestsManager.getChampionIcon(champion.name)}.png`
             },
             players: players
         });

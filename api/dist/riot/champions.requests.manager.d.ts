@@ -3,4 +3,5 @@ export declare class ChampionsRequestsManager {
     static getChampionInfoByName(name: string): Promise<RiotChampionInstance>;
     static getChampionCoverImage(championKey: string): Promise<string>;
     static getFreeChampionIds(serverCode: string): Promise<Array<number>>;
+    static getChampionIcon(championIcon: string): string;
 }
