@@ -91,16 +91,18 @@ class LegoraChampionsItemsProvider constructor(
             onSuccess(arrayListOf(ChampionTitleWidget("All Champions")))
             onSuccess(it.data ?: arrayListOf())
 
-            championsDao.onInsertChampions(it.data?.mapIndexed { index, it ->
-                ChampionCacheEntity(
-                    it.name ?: "",
-                    it.id ?: 0L,
-                    it.icon ?: "",
-                    it.type ?: "",
-                    index,
-                    it.isFreeToPlay ?: false
-                )
-            } ?: arrayListOf())
+            launch {
+                championsDao.onInsertChampions(it.data?.mapIndexed { index, it ->
+                    ChampionCacheEntity(
+                        it.name ?: "",
+                        it.id ?: 0L,
+                        it.icon ?: "",
+                        it.type ?: "",
+                        index,
+                        it.isFreeToPlay ?: false
+                    )
+                } ?: arrayListOf())
+            }
         }, {
             // Handle Error, Demo
         })
@@ -116,16 +118,18 @@ class LegoraChampionsItemsProvider constructor(
             onSuccess(it.data ?: arrayListOf())
 
             storageProvider.updateHomeFeedTimestamp(currentTimestamp)
-            championsDao.onInsertChampions(it.data?.mapIndexed { index, it ->
-                ChampionCacheEntity(
-                    it.name ?: "",
-                    it.id ?: 0L,
-                    it.icon ?: "",
-                    it.type ?: "",
-                    index,
-                    it.isFreeToPlay ?: false
-                )
-            } ?: arrayListOf())
+            launch {
+                championsDao.onInsertChampions(it.data?.mapIndexed { index, it ->
+                    ChampionCacheEntity(
+                        it.name ?: "",
+                        it.id ?: 0L,
+                        it.icon ?: "",
+                        it.type ?: "",
+                        index,
+                        it.isFreeToPlay ?: false
+                    )
+                } ?: arrayListOf())
+            }
         }, {
             // Handle Error, Demo
         })

@@ -2,16 +2,17 @@ plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.kotlinCocoapods)
     alias(libs.plugins.androidLibrary)
+    id("kotlinx-serialization")
+
     alias(libs.plugins.ksp)
     alias(libs.plugins.room)
-    id("kotlinx-serialization")
 }
 
 kotlin {
     androidTarget {
         compilations.all {
             kotlinOptions {
-                jvmTarget = "1.8"
+                jvmTarget = "11"
             }
         }
     }
@@ -29,22 +30,25 @@ kotlin {
         framework {
             baseName = "shared"
             isStatic = true
-            linkerOpts.add("-lsqlite3") // add sqlite
         }
     }
     
     sourceSets {
-        commonMain.dependencies {
-            implementation(libs.kotlinx.coroutines.core.v181)
-            implementation(libs.ktor.client.core)
-            implementation(libs.ktor.client.logging)
-            implementation(libs.ktor.client.serialization)
-            implementation(libs.kotlinx.serialization.json)
-            implementation(libs.ktor.client.content.negotiation)
-            implementation(libs.ktor.serialization.kotlinx.json)
+        commonMain {
+            kotlin.srcDir("build/generated/ksp/metadata")
+            dependencies {
+                implementation(libs.kotlinx.coroutines.core.v181)
+                implementation(libs.ktor.client.core)
+                implementation(libs.ktor.client.logging)
+                implementation(libs.ktor.client.serialization)
+                implementation(libs.kotlinx.serialization.json)
+                implementation(libs.ktor.client.content.negotiation)
+                implementation(libs.ktor.serialization.kotlinx.json)
 
-            implementation(libs.room.runtime)
-            implementation(libs.sqlite.bundled)
+//            implementation(libs.androidx.paging.common)
+                implementation(libs.androidx.room.runtime)
+                implementation(libs.sqlite.bundled)
+            }
         }
 
         iosMain.dependencies {
@@ -79,8 +83,13 @@ android {
         minSdk = 24
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
+    }
+    packaging {
+        resources {
+            excludes += "/META-INF/{AL2.0,LGPL2.1}"
+        }
     }
 }
 
@@ -89,5 +98,13 @@ room {
 }
 
 dependencies {
-    ksp(libs.room.compiler)
+    // Room
+    add("kspCommonMainMetadata", libs.room.compiler)
+
+}
+
+tasks.withType<org.jetbrains.kotlin.gradle.dsl.KotlinCompile<*>>().configureEach {
+    if (name != "kspCommonMainKotlinMetadata" ) {
+        dependsOn("kspCommonMainKotlinMetadata")
+    }
 }

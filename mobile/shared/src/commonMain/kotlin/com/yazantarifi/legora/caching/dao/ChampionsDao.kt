@@ -10,9 +10,9 @@ import com.yazantarifi.legora.caching.models.ChampionCacheEntity
 interface ChampionsDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun onInsertChampions(championCacheEntity: List<ChampionCacheEntity>)
+    suspend fun onInsertChampions(championCacheEntity: List<ChampionCacheEntity>)
 
     @Query("SELECT * FROM champions")
-    fun getChampions(): List<ChampionCacheEntity>
+    suspend fun getChampions(): List<ChampionCacheEntity>
 
 }

@@ -1,9 +1,9 @@
 [versions]
 agp = "8.4.0-rc02"
 jetbrainsKotlinxCoroutinesCore = "1.8.1"
-kotlin = "1.9.20"
+kotlin = "2.0.0"
 compose = "1.6.7"
-compose-compiler = "1.5.4"
+compose-compiler = "1.5.14"
 compose-material3 = "1.1.2"
 androidx-activityCompose = "1.8.0"
 accompanistPagerIndicators = "0.24.8-beta"
@@ -66,10 +66,16 @@ timber = "5.0.1"
 kotlinxSerialization = "1.7.20"
 hiltVersion = "2.51.1"
 room = "2.7.0-alpha01"
-ksp = "1.9.20-1.0.14"
+
+androidx-room = "2.7.0-alpha01"
+ksp = "2.0.0-1.0.22"
 sqlite = "2.5.0-SNAPSHOT"
+pagingComposeAndroid = "3.3.0-rc01"
+androidx-paging = "3.3.0-rc01"
+
 
 [libraries]
+kotlinGradle = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
 accompanist-pager = { module = "com.google.accompanist:accompanist-pager", version.ref = "accompanistPagerIndicators" }
 accompanist-pager-indicators = { module = "com.google.accompanist:accompanist-pager-indicators", version.ref = "accompanistPagerIndicators" }
 accompanist-systemuicontroller = { module = "com.google.accompanist:accompanist-systemuicontroller", version.ref = "accompanistSystemuicontroller" }
@@ -113,6 +119,12 @@ room-runtime-android = { module = "androidx.room:room-runtime-android", version.
 room-compiler = { module = "androidx.room:room-compiler", version.ref = "room" }
 sqlite-bundled = { module = "androidx.sqlite:sqlite-bundled", version.ref = "sqlite" }
 
+androidx-paging-common = { module = "androidx.paging:paging-common", version.ref = "androidx-paging" }
+androidx-paging-compose-android = { group = "androidx.paging", name = "paging-compose-android", version.ref = "pagingComposeAndroid" }
+androidx-room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "androidx-room" }
+androidx-room-paging = { group = "androidx.room", name = "room-paging", version.ref = "androidx-room" }
+androidx-room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "androidx-room" }
+
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
 androidLibrary = { id = "com.android.library", version.ref = "agp" }
@@ -123,3 +135,5 @@ kotlinSerialization = { id = "org.jetbrains.kotlin.plugin.serialization", versio
 hiltAndroidPlugin = { id = "com.google.dagger.hilt.android", version.ref = "hiltVersion" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 room = { id = "androidx.room", version.ref = "room" }
+org-jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }

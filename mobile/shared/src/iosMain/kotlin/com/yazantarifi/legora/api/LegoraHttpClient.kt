@@ -16,7 +16,7 @@ import io.ktor.http.contentType
 import io.ktor.serialization.kotlinx.json.json
 import kotlinx.serialization.json.Json
 
-class LegoraHttpClient {
+actual class LegoraHttpClient {
     actual val httpClient: HttpClient = HttpClient(Darwin) {
         engine {
             configureRequest {

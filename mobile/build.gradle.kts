@@ -7,5 +7,13 @@ plugins {
     alias(libs.plugins.kotlinCocoapods).apply(false)
     alias(libs.plugins.kotlinSerialization).apply(false)
     alias(libs.plugins.hiltAndroidPlugin).apply(false)
+    alias(libs.plugins.compose.compiler) apply false
+}
 
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+        maven("https://maven.pkg.jetbrains.space/public/p/compose/dev")
+    }
 }
