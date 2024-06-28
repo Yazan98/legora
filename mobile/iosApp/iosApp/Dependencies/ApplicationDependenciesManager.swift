@@ -11,6 +11,7 @@ import shared
 
 public class ApplicationDependenciesManager {
     
+    private var backgroundDispatchQueue: DispatchQueue? = nil
     private var storageProvider: LegoraStorageProvider? = nil
     private var httpClient: Ktor_client_coreHttpClient = LegoraHttpClient().httpClient
     private var legoraDatabase: LegoraDatabase? = nil
@@ -33,6 +34,14 @@ public class ApplicationDependenciesManager {
         }
         
         return self.legoraDatabase
+    }
+    
+    public func getDispatchQueueBackgroundInstance() -> DispatchQueue? {
+        if self.backgroundDispatchQueue == nil {
+            self.backgroundDispatchQueue = DispatchQueue.global(qos: .background)
+        }
+        
+        return self.backgroundDispatchQueue
     }
     
     public func getHttpClient() -> Ktor_client_coreHttpClient {

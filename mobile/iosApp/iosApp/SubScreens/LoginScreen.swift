@@ -8,12 +8,28 @@
 
 import SwiftUI
 
-struct LoginScreen: View {
+struct LoginScreen: View, AuthScreenListener {
     
+    @ObservedObject private var viewModel: AuthViewModel = AuthViewModel()
     @State private var emailState: String = ""
     @State private var passwordState: String = ""
+    @Binding var screenNavigation: Bool
     
     var body: some View {
+        Group {
+            if viewModel.isLoading {
+                LegoraLoadingView()
+            } else {
+                getLoginBody()
+            }
+        }
+        .onAppear {
+            self.viewModel.onRegisterNavigationListener(navigationListener: self)
+        }
+    }
+    
+    @ViewBuilder
+    private func getLoginBody() -> some View {
         ZStack {
             VStack(alignment: .leading) {
                 HStack(alignment: .center) {
@@ -71,7 +87,10 @@ struct LoginScreen: View {
                             .stroke(LegoraThemeStyle.getPrimaryColor(), lineWidth: 2)
                         )
                         .onTapGesture {
-                            
+                            viewModel.onLoginAccount(
+                                email: emailState,
+                                password: passwordState
+                            )
                         }
                     } else {
                         Group {
@@ -92,7 +111,7 @@ struct LoginScreen: View {
                     
                 }
         
-                NavigationLink(destination: RegisterScreen()) {
+                NavigationLink(destination: RegisterScreen(screenNavigation: $screenNavigation)) {
                     Text("Create New Account")
                         .foregroundColor(.black)
                         .padding(3)
@@ -100,8 +119,9 @@ struct LoginScreen: View {
             }
         }
     }
-}
-
-#Preview {
-    LoginScreen()
+    
+    func onLoginNavigationEnabled() {
+        self.screenNavigation = true
+    }
+    
 }

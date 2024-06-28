@@ -19,4 +19,8 @@ public class LegoraThemeStyle {
         return Color("PrimaryColor")
     }
     
+    public static func getDarkGreyColor() -> Color {
+        return Color("DarkGreyColor")
+    }
+    
 }

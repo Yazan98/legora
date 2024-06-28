@@ -9,9 +9,21 @@
 import SwiftUI
 
 struct AuthScreen: View {
+    
+    @State private var isScreenNavigationEnabled = false
+    
     var body: some View {
-        NavigationView {
-            LoginScreen()
+        ZStack {
+            NavigationLink(
+                destination: HomeScreen(),
+                isActive: $isScreenNavigationEnabled
+            ) {
+                EmptyView()
+            }
+            
+            NavigationView {
+                LoginScreen(screenNavigation: $isScreenNavigationEnabled)
+            }
         }
         .navigationBarBackButtonHidden(true)
         .navigationTitle("Legora")
