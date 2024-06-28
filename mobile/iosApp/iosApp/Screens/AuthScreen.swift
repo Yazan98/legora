@@ -10,10 +10,12 @@ import SwiftUI
 
 struct AuthScreen: View {
     var body: some View {
-        VStack {
-            Text("Auth Screen")
+        NavigationView {
+            LoginScreen()
         }
         .navigationBarBackButtonHidden(true)
+        .navigationTitle("Legora")
+        .navigationSplitViewStyle(.prominentDetail)
     }
 }
 

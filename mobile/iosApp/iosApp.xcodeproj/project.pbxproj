@@ -16,6 +16,9 @@
 		8AD3FFB82C2B4CE8003B0367 /* LegoraApplicationUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD3FFB72C2B4CE8003B0367 /* LegoraApplicationUtils.swift */; };
 		8AD3FFBA2C2B4D24003B0367 /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD3FFB92C2B4D24003B0367 /* HomeScreen.swift */; };
 		8AD3FFBC2C2B4D2B003B0367 /* AuthScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD3FFBB2C2B4D2B003B0367 /* AuthScreen.swift */; };
+		8AD3FFBF2C2E8E0A003B0367 /* LoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD3FFBE2C2E8E0A003B0367 /* LoginScreen.swift */; };
+		8AD3FFC12C2E8E11003B0367 /* RegisterScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD3FFC02C2E8E11003B0367 /* RegisterScreen.swift */; };
+		8AD3FFC32C2E9643003B0367 /* LegoraThemeStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD3FFC22C2E9643003B0367 /* LegoraThemeStyle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +32,9 @@
 		8AD3FFB72C2B4CE8003B0367 /* LegoraApplicationUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegoraApplicationUtils.swift; sourceTree = "<group>"; };
 		8AD3FFB92C2B4D24003B0367 /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
 		8AD3FFBB2C2B4D2B003B0367 /* AuthScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthScreen.swift; sourceTree = "<group>"; };
+		8AD3FFBE2C2E8E0A003B0367 /* LoginScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreen.swift; sourceTree = "<group>"; };
+		8AD3FFC02C2E8E11003B0367 /* RegisterScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterScreen.swift; sourceTree = "<group>"; };
+		8AD3FFC22C2E9643003B0367 /* LegoraThemeStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegoraThemeStyle.swift; sourceTree = "<group>"; };
 		A4A973F94C50DD16569E03A1 /* Pods_iosApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iosApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAA0B0BE2EAC56399B71F747 /* Pods-iosApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iosApp.release.xcconfig"; path = "Target Support Files/Pods-iosApp/Pods-iosApp.release.xcconfig"; sourceTree = "<group>"; };
 		AD448F702139C63E875778CD /* Pods-iosApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iosApp.debug.xcconfig"; path = "Target Support Files/Pods-iosApp/Pods-iosApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -92,6 +98,7 @@
 		7555FF7D242A565900829871 /* iosApp */ = {
 			isa = PBXGroup;
 			children = (
+				8AD3FFBD2C2E8E01003B0367 /* SubScreens */,
 				8AD3FFB42C2B4B70003B0367 /* ViewModels */,
 				8AD3FFB32C2B4B69003B0367 /* Dependencies */,
 				8AD3FFB22C2B4B5F003B0367 /* Views */,
@@ -110,6 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				8AD3FFB72C2B4CE8003B0367 /* LegoraApplicationUtils.swift */,
+				8AD3FFC22C2E9643003B0367 /* LegoraThemeStyle.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -143,6 +151,15 @@
 			children = (
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		8AD3FFBD2C2E8E01003B0367 /* SubScreens */ = {
+			isa = PBXGroup;
+			children = (
+				8AD3FFBE2C2E8E0A003B0367 /* LoginScreen.swift */,
+				8AD3FFC02C2E8E11003B0367 /* RegisterScreen.swift */,
+			);
+			path = SubScreens;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -246,8 +263,11 @@
 				8AD3FFBA2C2B4D24003B0367 /* HomeScreen.swift in Sources */,
 				2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */,
 				8AD3FFB82C2B4CE8003B0367 /* LegoraApplicationUtils.swift in Sources */,
+				8AD3FFC12C2E8E11003B0367 /* RegisterScreen.swift in Sources */,
+				8AD3FFBF2C2E8E0A003B0367 /* LoginScreen.swift in Sources */,
 				7555FF83242A565900829871 /* SplashScreen.swift in Sources */,
 				8AD3FFBC2C2B4D2B003B0367 /* AuthScreen.swift in Sources */,
+				8AD3FFC32C2E9643003B0367 /* LegoraThemeStyle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
