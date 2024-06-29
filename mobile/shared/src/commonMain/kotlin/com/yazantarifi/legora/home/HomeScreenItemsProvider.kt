@@ -1,5 +1,6 @@
 package com.yazantarifi.legora.home
 
+import com.yazantarifi.legora.LegoraSharedStorage
 import com.yazantarifi.legora.api.requests.GetHomeFeedRequestManager
 import com.yazantarifi.legora.context.LegoraStorageProvider
 import com.yazantarifi.legora.home.items.HomeNewsItemWidget
@@ -21,7 +22,7 @@ class HomeScreenItemsProvider constructor(
 ): CoroutineScope {
 
     private val repository: GetHomeFeedRequestManager by lazy {
-        GetHomeFeedRequestManager(httpClient)
+        GetHomeFeedRequestManager(httpClient, LegoraSharedStorage.getApplicationHeaders("1.0", storageProvider.getAccessToken()))
     }
 
     override val coroutineContext: CoroutineContext

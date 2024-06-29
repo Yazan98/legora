@@ -1,8 +1,10 @@
 package com.yazantarifi.legora.account
 
+import com.yazantarifi.legora.LegoraSharedStorage
 import com.yazantarifi.legora.api.requests.GetLeagueMatchHistoryRequestManager
 import com.yazantarifi.legora.api.requests.GetProfileInfoRequestManager
 import com.yazantarifi.legora.api.requests.GetTacticesMatchHistoryRequestManager
+import com.yazantarifi.legora.context.LegoraStorageProvider
 import com.yazantarifi.legora.response.AccountInfoResponse
 import com.yazantarifi.legora.response.LegoraMatch
 import com.yazantarifi.legora.response.LegoraTftMatch
@@ -15,22 +17,23 @@ import kotlinx.coroutines.launch
 import kotlin.coroutines.CoroutineContext
 
 class LegoraAccountItemsProvider constructor(
-    private val httpClient: HttpClient
+    private val httpClient: HttpClient,
+    private val storageProvider: LegoraStorageProvider
 ): CoroutineScope {
 
     override val coroutineContext: CoroutineContext
         get() = SupervisorJob() + Dispatchers.IO
 
     private val accountInfoRequest: GetProfileInfoRequestManager by lazy {
-        GetProfileInfoRequestManager(httpClient)
+        GetProfileInfoRequestManager(httpClient, LegoraSharedStorage.getApplicationHeaders("1.0", storageProvider.getAccessToken()))
     }
 
     private val lolMatchHistoryRequest: GetLeagueMatchHistoryRequestManager by lazy {
-        GetLeagueMatchHistoryRequestManager(httpClient)
+        GetLeagueMatchHistoryRequestManager(httpClient,  LegoraSharedStorage.getApplicationHeaders("1.0", storageProvider.getAccessToken()))
     }
 
     private val tftMatchHistoryRequest: GetTacticesMatchHistoryRequestManager by lazy {
-        GetTacticesMatchHistoryRequestManager(httpClient)
+        GetTacticesMatchHistoryRequestManager(httpClient,  LegoraSharedStorage.getApplicationHeaders("1.0", storageProvider.getAccessToken()))
     }
 
     fun getProfileInfo(onSuccess: (List<AccountItem>) -> Unit) {

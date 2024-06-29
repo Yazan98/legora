@@ -9,7 +9,8 @@ import io.ktor.client.HttpClient
 import kotlinx.coroutines.launch
 
 class GetHomeFeedRequestManager constructor(
-    private val httpClient: HttpClient
+    private val httpClient: HttpClient,
+    private val requestHeaders: HashMap<String, String>
 ): LegoraRequestManager<Unit, LegoraResponse<List<HomeFeedResponse>>>() {
 
     override fun getRequestInfo(
@@ -21,7 +22,7 @@ class GetHomeFeedRequestManager constructor(
             onExecuteRequest<Unit, LegoraResponse<List<HomeFeedResponse>>>(
                 httpClient,
                 Unit,
-                LegoraSharedStorage.requestsListener?.getRequestHeaders() ?: hashMapOf(),
+                requestHeaders,
                 getFullRequestUrl("api/v1/home/feed"),
                 onSuccess,
                 onError

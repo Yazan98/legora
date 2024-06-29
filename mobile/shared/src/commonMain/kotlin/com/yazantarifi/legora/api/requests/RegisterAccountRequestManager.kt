@@ -10,7 +10,8 @@ import io.ktor.client.HttpClient
 import kotlinx.coroutines.launch
 
 class RegisterAccountRequestManager constructor(
-    private val httpClient: HttpClient
+    private val httpClient: HttpClient,
+    private val requestHeaders: HashMap<String, String>
 ): LegoraRequestManager<RegisterAccountRequestBody, LegoraResponse<AuthResponse>>() {
 
     override fun getRequestInfo(
@@ -22,7 +23,7 @@ class RegisterAccountRequestManager constructor(
             onExecuteRequest<RegisterAccountRequestBody, LegoraResponse<AuthResponse>>(
                 httpClient,
                 requestBody,
-                LegoraSharedStorage.requestsListener?.getRequestHeaders() ?: hashMapOf(),
+                requestHeaders,
                 getFullRequestUrl("api/v1/accounts/register"),
                 onSuccess,
                 onError

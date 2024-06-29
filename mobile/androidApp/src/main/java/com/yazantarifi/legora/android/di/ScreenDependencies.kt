@@ -1,6 +1,7 @@
 package com.yazantarifi.legora.android.di
 
 import android.content.Context
+import com.yazantarifi.legora.LegoraSharedStorage
 import com.yazantarifi.legora.account.LegoraAccountItemsProvider
 import com.yazantarifi.legora.android.LegoraApplication
 import com.yazantarifi.legora.api.requests.GetHomeFeedRequestManager
@@ -22,18 +23,18 @@ import io.ktor.client.HttpClient
 object ScreenDependencies {
 
     @Provides
-    fun getLoginAccountRequestManager(httpClient: HttpClient): LoginAccountRequestManager {
-        return LoginAccountRequestManager(httpClient)
+    fun getLoginAccountRequestManager(httpClient: HttpClient, storageProvider: LegoraStorageProvider): LoginAccountRequestManager {
+        return LoginAccountRequestManager(httpClient, LegoraSharedStorage.getApplicationHeaders("1.0", storageProvider.getAccessToken()))
     }
 
     @Provides
-    fun getRegisterAccountRequestManager(httpClient: HttpClient): RegisterAccountRequestManager {
-        return RegisterAccountRequestManager(httpClient)
+    fun getRegisterAccountRequestManager(httpClient: HttpClient, storageProvider: LegoraStorageProvider): RegisterAccountRequestManager {
+        return RegisterAccountRequestManager(httpClient, LegoraSharedStorage.getApplicationHeaders("1.0", storageProvider.getAccessToken()))
     }
 
     @Provides
-    fun getGetHomeFeedRequestManager(httpClient: HttpClient): GetHomeFeedRequestManager {
-        return GetHomeFeedRequestManager(httpClient)
+    fun getGetHomeFeedRequestManager(httpClient: HttpClient, storageProvider: LegoraStorageProvider): GetHomeFeedRequestManager {
+        return GetHomeFeedRequestManager(httpClient, LegoraSharedStorage.getApplicationHeaders("1.0", storageProvider.getAccessToken()))
     }
 
     @Provides
@@ -45,8 +46,8 @@ object ScreenDependencies {
     }
 
     @Provides
-    fun getLegoraAccountItemsProvider(httpClient: HttpClient): LegoraAccountItemsProvider {
-        return LegoraAccountItemsProvider(httpClient)
+    fun getLegoraAccountItemsProvider(httpClient: HttpClient, storageProvider: LegoraStorageProvider): LegoraAccountItemsProvider {
+        return LegoraAccountItemsProvider(httpClient, storageProvider)
     }
 
     @Provides

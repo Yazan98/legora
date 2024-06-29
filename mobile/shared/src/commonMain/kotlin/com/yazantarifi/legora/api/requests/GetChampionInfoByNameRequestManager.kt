@@ -9,7 +9,8 @@ import io.ktor.client.HttpClient
 import kotlinx.coroutines.launch
 
 class GetChampionInfoByNameRequestManager constructor(
-    private val httpClient: HttpClient
+    private val httpClient: HttpClient,
+    private val requestHeaders: HashMap<String, String>
 ): LegoraRequestManager<String, LegoraResponse<ChampionInfo>>() {
 
     override fun getRequestInfo(
@@ -21,7 +22,7 @@ class GetChampionInfoByNameRequestManager constructor(
             onExecuteRequest<Unit, LegoraResponse<ChampionInfo>>(
                 httpClient,
                 Unit,
-                LegoraSharedStorage.requestsListener?.getRequestHeaders() ?: hashMapOf(),
+                requestHeaders,
                 getFullRequestUrl("api/v1/champions/lol/${requestBody}"),
                 onSuccess,
                 onError

@@ -1,5 +1,6 @@
 package com.yazantarifi.legora.champions
 
+import com.yazantarifi.legora.LegoraSharedStorage
 import com.yazantarifi.legora.api.requests.GetChampionsListRequestManager
 import com.yazantarifi.legora.api.requests.GetTacticesChampionsListRequestManager
 import com.yazantarifi.legora.caching.dao.ChampionsDao
@@ -24,11 +25,11 @@ class LegoraChampionsItemsProvider constructor(
 ): CoroutineScope {
 
     private val championsRequest: GetChampionsListRequestManager by lazy {
-        GetChampionsListRequestManager(httpClient)
+        GetChampionsListRequestManager(httpClient, LegoraSharedStorage.getApplicationHeaders("1.0", storageProvider.getAccessToken()))
     }
 
     private val tftChampionsRequest: GetTacticesChampionsListRequestManager by lazy {
-        GetTacticesChampionsListRequestManager(httpClient)
+        GetTacticesChampionsListRequestManager(httpClient, LegoraSharedStorage.getApplicationHeaders("1.0", storageProvider.getAccessToken()))
     }
 
     override val coroutineContext: CoroutineContext

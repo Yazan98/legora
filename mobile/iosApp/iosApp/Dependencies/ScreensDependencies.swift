@@ -17,7 +17,11 @@ public class ScreensDependencies {
     public static func getLoginRequestManagerInstance() -> LoginAccountRequestManager? {
         if loginAccountRequestManager == nil {
             loginAccountRequestManager = LoginAccountRequestManager(
-                httpClient: ApplicationDependenciesManager.shared.getHttpClient()
+                httpClient: ApplicationDependenciesManager.shared.getHttpClient(),
+                requestHeaders: LegoraSharedStorage.shared.getApplicationHeaders(
+                    appVersion: "1.0",
+                    token: ApplicationDependenciesManager.shared.getStorageInstance()?.getAccessToken() ?? ""
+                )
             )
         }
         
@@ -27,7 +31,11 @@ public class ScreensDependencies {
     public static func getRegisterRequestManagerInstance() -> RegisterAccountRequestManager? {
         if registerAccountRequestManager == nil {
             registerAccountRequestManager = RegisterAccountRequestManager(
-                httpClient: ApplicationDependenciesManager.shared.getHttpClient()
+                httpClient: ApplicationDependenciesManager.shared.getHttpClient(),
+                requestHeaders: LegoraSharedStorage.shared.getApplicationHeaders(
+                    appVersion: "1.0",
+                    token: ApplicationDependenciesManager.shared.getStorageInstance()?.getAccessToken() ?? ""
+                )
             )
         }
         

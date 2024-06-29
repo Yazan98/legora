@@ -9,7 +9,8 @@ import io.ktor.client.HttpClient
 import kotlinx.coroutines.launch
 
 class GetLeagueMatchHistoryRequestManager constructor(
-    private val httpClient: HttpClient
+    private val httpClient: HttpClient,
+    private val requestHeaders: HashMap<String, String>
 ): LegoraRequestManager<Unit, LegoraResponse<ArrayList<LegoraMatch>>>() {
 
     override fun getRequestInfo(
@@ -21,7 +22,7 @@ class GetLeagueMatchHistoryRequestManager constructor(
             onExecuteRequest<Unit, LegoraResponse<ArrayList<LegoraMatch>>>(
                 httpClient,
                 requestBody,
-                LegoraSharedStorage.requestsListener?.getRequestHeaders() ?: hashMapOf(),
+                requestHeaders,
                 getFullRequestUrl("api/v1/matches/lol"),
                 onSuccess,
                 onError
@@ -37,7 +38,7 @@ class GetLeagueMatchHistoryRequestManager constructor(
         onExecuteRequest<Unit, LegoraResponse<ArrayList<LegoraMatch>>>(
             httpClient,
             requestBody,
-            LegoraSharedStorage.requestsListener?.getRequestHeaders() ?: hashMapOf(),
+            requestHeaders,
             getFullRequestUrl("api/v1/matches/lol"),
             onSuccess,
             onError

@@ -10,7 +10,8 @@ import io.ktor.client.HttpClient
 import kotlinx.coroutines.launch
 
 class GetTacticesMatchHistoryRequestManager constructor(
-    private val httpClient: HttpClient
+    private val httpClient: HttpClient,
+    private val requestHeaders: HashMap<String, String>
 ): LegoraRequestManager<Unit, LegoraResponse<ArrayList<LegoraTftMatch>>>() {
 
     override fun getRequestInfo(
@@ -22,7 +23,7 @@ class GetTacticesMatchHistoryRequestManager constructor(
             onExecuteRequest<Unit, LegoraResponse<ArrayList<LegoraTftMatch>>>(
                 httpClient,
                 requestBody,
-                LegoraSharedStorage.requestsListener?.getRequestHeaders() ?: hashMapOf(),
+                requestHeaders,
                 getFullRequestUrl("api/v1/matches/tft"),
                 onSuccess,
                 onError
@@ -38,7 +39,7 @@ class GetTacticesMatchHistoryRequestManager constructor(
         onExecuteRequest<Unit, LegoraResponse<ArrayList<LegoraTftMatch>>>(
             httpClient,
             requestBody,
-            LegoraSharedStorage.requestsListener?.getRequestHeaders() ?: hashMapOf(),
+            requestHeaders,
             getFullRequestUrl("api/v1/matches/tft"),
             onSuccess,
             onError

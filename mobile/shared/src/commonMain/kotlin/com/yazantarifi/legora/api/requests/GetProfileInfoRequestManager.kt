@@ -9,7 +9,8 @@ import io.ktor.client.HttpClient
 import kotlinx.coroutines.launch
 
 class GetProfileInfoRequestManager constructor(
-    private val httpClient: HttpClient
+    private val httpClient: HttpClient,
+    private val requestHeaders: HashMap<String, String>
 ): LegoraRequestManager<Unit, LegoraResponse<AccountInfoResponse>>() {
 
     override fun getRequestInfo(
@@ -21,7 +22,7 @@ class GetProfileInfoRequestManager constructor(
             onExecuteRequest<Unit, LegoraResponse<AccountInfoResponse>>(
                 httpClient,
                 requestBody,
-                LegoraSharedStorage.requestsListener?.getRequestHeaders() ?: hashMapOf(),
+                requestHeaders,
                 getFullRequestUrl("api/v1/accounts/info"),
                 onSuccess,
                 onError
@@ -37,7 +38,7 @@ class GetProfileInfoRequestManager constructor(
         onExecuteRequest<Unit, LegoraResponse<AccountInfoResponse>>(
             httpClient,
             requestBody,
-            LegoraSharedStorage.requestsListener?.getRequestHeaders() ?: hashMapOf(),
+            requestHeaders,
             getFullRequestUrl("api/v1/accounts/info"),
             onSuccess,
             onError
