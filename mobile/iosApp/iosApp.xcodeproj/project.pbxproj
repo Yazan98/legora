@@ -24,6 +24,9 @@
 		8AD3FFCB2C2F34C5003B0367 /* AuthViewModelImplementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD3FFCA2C2F34C5003B0367 /* AuthViewModelImplementation.swift */; };
 		8AD3FFCF2C2F374A003B0367 /* LegoraLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD3FFCE2C2F374A003B0367 /* LegoraLoadingView.swift */; };
 		8AD3FFD12C2F3869003B0367 /* ScreensDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD3FFD02C2F3869003B0367 /* ScreensDependencies.swift */; };
+		8AD3FFD32C307044003B0367 /* LegoraBottomSheetOptionsPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD3FFD22C307044003B0367 /* LegoraBottomSheetOptionsPicker.swift */; };
+		8AD3FFD62C30707F003B0367 /* AuthBottomSheetOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD3FFD52C30707F003B0367 /* AuthBottomSheetOption.swift */; };
+		8AD3FFD82C3070BC003B0367 /* AuthSelectionListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD3FFD72C3070BC003B0367 /* AuthSelectionListener.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +48,9 @@
 		8AD3FFCA2C2F34C5003B0367 /* AuthViewModelImplementation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModelImplementation.swift; sourceTree = "<group>"; };
 		8AD3FFCE2C2F374A003B0367 /* LegoraLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegoraLoadingView.swift; sourceTree = "<group>"; };
 		8AD3FFD02C2F3869003B0367 /* ScreensDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreensDependencies.swift; sourceTree = "<group>"; };
+		8AD3FFD22C307044003B0367 /* LegoraBottomSheetOptionsPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegoraBottomSheetOptionsPicker.swift; sourceTree = "<group>"; };
+		8AD3FFD52C30707F003B0367 /* AuthBottomSheetOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthBottomSheetOption.swift; sourceTree = "<group>"; };
+		8AD3FFD72C3070BC003B0367 /* AuthSelectionListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthSelectionListener.swift; sourceTree = "<group>"; };
 		A4A973F94C50DD16569E03A1 /* Pods_iosApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iosApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAA0B0BE2EAC56399B71F747 /* Pods-iosApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iosApp.release.xcconfig"; path = "Target Support Files/Pods-iosApp/Pods-iosApp.release.xcconfig"; sourceTree = "<group>"; };
 		AD448F702139C63E875778CD /* Pods-iosApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iosApp.debug.xcconfig"; path = "Target Support Files/Pods-iosApp/Pods-iosApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -108,6 +114,7 @@
 		7555FF7D242A565900829871 /* iosApp */ = {
 			isa = PBXGroup;
 			children = (
+				8AD3FFD42C307073003B0367 /* Models */,
 				8AD3FFC92C2F34BD003B0367 /* Impl */,
 				8AD3FFC62C2F3476003B0367 /* Listeners */,
 				8AD3FFBD2C2E8E01003B0367 /* SubScreens */,
@@ -147,6 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				8AD3FFCE2C2F374A003B0367 /* LegoraLoadingView.swift */,
+				8AD3FFD22C307044003B0367 /* LegoraBottomSheetOptionsPicker.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -191,6 +199,15 @@
 				8AD3FFCA2C2F34C5003B0367 /* AuthViewModelImplementation.swift */,
 			);
 			path = Impl;
+			sourceTree = "<group>";
+		};
+		8AD3FFD42C307073003B0367 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8AD3FFD52C30707F003B0367 /* AuthBottomSheetOption.swift */,
+				8AD3FFD72C3070BC003B0367 /* AuthSelectionListener.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -294,6 +311,7 @@
 				8AD3FFC52C2F3388003B0367 /* AuthViewModel.swift in Sources */,
 				8AD3FFB62C2B4B86003B0367 /* ApplicationDependenciesManager.swift in Sources */,
 				8AD3FFBA2C2B4D24003B0367 /* HomeScreen.swift in Sources */,
+				8AD3FFD82C3070BC003B0367 /* AuthSelectionListener.swift in Sources */,
 				2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */,
 				8AD3FFB82C2B4CE8003B0367 /* LegoraApplicationUtils.swift in Sources */,
 				8AD3FFD12C2F3869003B0367 /* ScreensDependencies.swift in Sources */,
@@ -304,6 +322,8 @@
 				8AD3FFBC2C2B4D2B003B0367 /* AuthScreen.swift in Sources */,
 				8AD3FFC82C2F3483003B0367 /* AuthScreenListener.swift in Sources */,
 				8AD3FFC32C2E9643003B0367 /* LegoraThemeStyle.swift in Sources */,
+				8AD3FFD32C307044003B0367 /* LegoraBottomSheetOptionsPicker.swift in Sources */,
+				8AD3FFD62C30707F003B0367 /* AuthBottomSheetOption.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

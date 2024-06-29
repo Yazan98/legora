@@ -12,13 +12,42 @@ import shared
 
 public class AuthViewModel : ObservableObject, AuthViewModelImplementation {
     
+    public static let SERVER_NAME_KEY = "server"
+    public static let SERVER_REGION_KEY = "region"
+    
     @Published var isLoading: Bool = false
     private var navigationListener: AuthScreenListener? = nil
     private let loginRequestManager = ScreensDependencies.getLoginRequestManagerInstance()
     private let registerRequestManager = ScreensDependencies.getRegisterRequestManagerInstance()
+    var selectionKey: String = ""
+
     
     public func onRegisterNavigationListener(navigationListener: AuthScreenListener) {
         self.navigationListener = navigationListener
+    }
+    
+    public func getBottomSheetOptionsByKey(key: String) -> [AuthBottomSheetOption] {
+        if key == AuthViewModel.SERVER_NAME_KEY {
+            return RiotServerManager.shared.getServersList().map { server in
+                AuthBottomSheetOption(name: server.name, key: server.key)
+            }
+        } else {
+            return RiotServerManager.shared.getServerRegions().map { server in
+                AuthBottomSheetOption(name: server.name, key: server.key)
+            }
+        }
+    }
+    
+    public func getServerName(key: String) -> String {
+        return RiotServerManager.shared.getServersList().filter { server in
+            return server.key == key
+        }[0].name
+    }
+    
+    public func getServerRegion(key: String) -> String {
+        return RiotServerManager.shared.getServerRegions().filter { server in
+            return server.key == key
+        }[0].name
     }
     
     public func onLoginAccount(email: String, password: String) {
