@@ -9,9 +9,25 @@
 import SwiftUI
 
 struct HomeScreen: View {
+    
+    @StateObject private var championsViewModel = ChampionsViewModel()
+    
     var body: some View {
-        VStack {
-            Text("Home Screen")
+        TabView {
+            FeedScreen()
+                .tabItem {
+                   Label("Home", systemImage: "house.fill")
+                }
+            
+            ChampionsScreen(viewModel: championsViewModel)
+                .tabItem {
+                   Label("Champions", systemImage: "opticaldiscdrive.fill")
+                }
+            
+            AccountScreen()
+                .tabItem {
+                   Label("Account", systemImage: "person.fill")
+                }
         }
         .navigationBarBackButtonHidden(true)
     }
