@@ -7,18 +7,24 @@
 //
 
 import SwiftUI
+import shared
 
 struct ChampionsScreen: View {
     
+    @ObservedObject var viewModel: ChampionsViewModel
     let spacing: CGFloat = 20
     let columnCount = 2
-    @ObservedObject var viewModel: ChampionsViewModel
+    var columns: [GridItem] {
+        Array(repeatElement(GridItem(.flexible()), count: columnCount))
+    }
 
     var body: some View {
-        getScreenContent()
-            .onAppear {
-                viewModel.getChampionsList()
-            }
+        VStack {
+            getScreenContent()
+        }
+        .onAppear {
+            viewModel.getChampionsList()
+        }
     }
     
     @ViewBuilder
@@ -26,40 +32,34 @@ struct ChampionsScreen: View {
         if viewModel.isLoading {
             LegoraLoadingView()
         } else {
-            var columns: [GridItem] {
-                Array(repeatElement(GridItem(.flexible()), count: columnCount))
-            }
-            
             if !viewModel.championsList.isEmpty {
                 GeometryReader { proxy in
-                    ScrollView {
+                    ScrollView(showsIndicators: false) {
                         LazyVGrid(columns: columns, spacing: spacing) {
                             ForEach(0...viewModel.championsList.count - 1, id: \.self) { item in
-                                let isItemFullWidth =
-                                viewModel.championsList[item].getType() == .freeToPlay ||
+                                let isItemFullWidth = viewModel.championsList[item].getType() == .freeToPlay ||
                                 viewModel.championsList[item].getType() == .title
                                 
                                 if isItemFullWidth {
                                     Color.clear
-                                                                .frame(minHeight: 100)
-                                                                .overlay(alignment: .leading) {
-                                                                    Text("\(viewModel.championsList[item].getType()) \(item)")
-                                                                        .frame(maxHeight: .infinity)
-                                                                        .frame(width: proxy.size.width)
-                                                                        .background(Color.gray)
-                                                                        .foregroundColor(.white)
-                                                                        .cornerRadius(8)
-
-                                                                }
-                                                            Color.clear
+                                        .frame(minHeight: 100)
+                                        .overlay(alignment: .leading) {
+                                                if (viewModel.championsList[item].getType() == .title) {
+                                                    TitleWidget(title: (viewModel.championsList[item] as! ChampionTitleWidget).title)
+                                                                .frame(maxHeight: .infinity)
+                                                                .frame(width: proxy.size.width)
+                                                } else {
+                                                    FreeChampionsView(
+                                                        champions: (viewModel.championsList[item] as! ChampionsFreeToPlayWidget).champions
+                                                    )
+                                                    .frame(width: UIScreen.screenWidth, height: 200)
+                                                }
+                                        }
+                                    Color.clear
+                                    
                                 } else {
-                                    Text("\(viewModel.championsList[item].getType()) \(item)")
-                                                                .frame(width: cellWidth(for: proxy.size))
-                                                                .frame(minHeight: 100)
-                                                                .background(Color.green)
-                                                                .foregroundColor(.white)
-                                                                .cornerRadius(8)
-                                                                .padding()
+                                    ChampionItemView(champion: viewModel.championsList[item] as! LegoraChampion)
+                                        .frame(width: cellWidth(for: proxy.size))
                                 }
                             }
                         }

@@ -22,6 +22,10 @@ export class ChampionsService {
         const freeChampionsIds = await ChampionsRequestsManager.getFreeChampionIds(user.summonerServerCode);
         for (let i = 0; i < champions.length; i++) {
             const champion = champions[i];
+            if (champion.name.includes("Blanc") || champion.name.includes("Nunu") || champion.name.includes("Sante")) {
+                continue;
+            }
+
             results.push({
                 id: Number(champion.key),
                 name: champion.name,

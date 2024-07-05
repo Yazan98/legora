@@ -108,7 +108,7 @@ class LegoraChampionsItemsProvider constructor(
             // Handle Error, Demo
         })
 
-        delay(500L)
+        delay(1000L)
 
         tftChampionsRequest.getRequestInfo(Unit, {
             it.data?.forEach {

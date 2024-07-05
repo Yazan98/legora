@@ -8,6 +8,7 @@
 
 import Foundation
 import shared
+import SwiftUI
 
 public class LegoraApplicationUtils {
     
@@ -21,4 +22,10 @@ extension Date {
     func toMillis() -> Int64! {
         return Int64(self.timeIntervalSince1970 * 1000)
     }
+}
+
+extension UIScreen{
+   static let screenWidth = UIScreen.main.bounds.size.width
+   static let screenHeight = UIScreen.main.bounds.size.height
+   static let screenSize = UIScreen.main.bounds.size
 }

@@ -38,6 +38,9 @@ export class RiotRequestsManager {
             .then((result) => {
                 const champions: Map<string, ChampionObject> = result.data.data;
                 for (const [key, value] of Object.entries(champions)) {
+                    if (key.includes("Blanc") || key.includes("Nunu") || key.includes("Sante")) {
+                        continue;
+                    }
                     championsList.push(value);
                 }
             })

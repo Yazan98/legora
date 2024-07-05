@@ -31,6 +31,9 @@
 		8AD3FFDC2C307901003B0367 /* AccountScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD3FFDB2C307901003B0367 /* AccountScreen.swift */; };
 		8AD3FFDE2C307910003B0367 /* FeedScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD3FFDD2C307910003B0367 /* FeedScreen.swift */; };
 		8AD3FFE02C30A556003B0367 /* ChampionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD3FFDF2C30A556003B0367 /* ChampionsViewModel.swift */; };
+		8AD3FFE22C346B1E003B0367 /* TitleWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD3FFE12C346B1E003B0367 /* TitleWidget.swift */; };
+		8AD3FFE42C3798F4003B0367 /* ChampionItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD3FFE32C3798F4003B0367 /* ChampionItemView.swift */; };
+		8AD3FFE62C381BAD003B0367 /* FreeChampionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD3FFE52C381BAD003B0367 /* FreeChampionsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +62,9 @@
 		8AD3FFDB2C307901003B0367 /* AccountScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountScreen.swift; sourceTree = "<group>"; };
 		8AD3FFDD2C307910003B0367 /* FeedScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedScreen.swift; sourceTree = "<group>"; };
 		8AD3FFDF2C30A556003B0367 /* ChampionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChampionsViewModel.swift; sourceTree = "<group>"; };
+		8AD3FFE12C346B1E003B0367 /* TitleWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleWidget.swift; sourceTree = "<group>"; };
+		8AD3FFE32C3798F4003B0367 /* ChampionItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChampionItemView.swift; sourceTree = "<group>"; };
+		8AD3FFE52C381BAD003B0367 /* FreeChampionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreeChampionsView.swift; sourceTree = "<group>"; };
 		A4A973F94C50DD16569E03A1 /* Pods_iosApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iosApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAA0B0BE2EAC56399B71F747 /* Pods-iosApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iosApp.release.xcconfig"; path = "Target Support Files/Pods-iosApp/Pods-iosApp.release.xcconfig"; sourceTree = "<group>"; };
 		AD448F702139C63E875778CD /* Pods-iosApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iosApp.debug.xcconfig"; path = "Target Support Files/Pods-iosApp/Pods-iosApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -163,6 +169,9 @@
 			children = (
 				8AD3FFCE2C2F374A003B0367 /* LegoraLoadingView.swift */,
 				8AD3FFD22C307044003B0367 /* LegoraBottomSheetOptionsPicker.swift */,
+				8AD3FFE12C346B1E003B0367 /* TitleWidget.swift */,
+				8AD3FFE32C3798F4003B0367 /* ChampionItemView.swift */,
+				8AD3FFE52C381BAD003B0367 /* FreeChampionsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -329,11 +338,14 @@
 				8AD3FFB82C2B4CE8003B0367 /* LegoraApplicationUtils.swift in Sources */,
 				8AD3FFD12C2F3869003B0367 /* ScreensDependencies.swift in Sources */,
 				8AD3FFC12C2E8E11003B0367 /* RegisterScreen.swift in Sources */,
+				8AD3FFE42C3798F4003B0367 /* ChampionItemView.swift in Sources */,
 				8AD3FFBF2C2E8E0A003B0367 /* LoginScreen.swift in Sources */,
 				7555FF83242A565900829871 /* SplashScreen.swift in Sources */,
+				8AD3FFE22C346B1E003B0367 /* TitleWidget.swift in Sources */,
 				8AD3FFE02C30A556003B0367 /* ChampionsViewModel.swift in Sources */,
 				8AD3FFCB2C2F34C5003B0367 /* AuthViewModelImplementation.swift in Sources */,
 				8AD3FFBC2C2B4D2B003B0367 /* AuthScreen.swift in Sources */,
+				8AD3FFE62C381BAD003B0367 /* FreeChampionsView.swift in Sources */,
 				8AD3FFC82C2F3483003B0367 /* AuthScreenListener.swift in Sources */,
 				8AD3FFC32C2E9643003B0367 /* LegoraThemeStyle.swift in Sources */,
 				8AD3FFD32C307044003B0367 /* LegoraBottomSheetOptionsPicker.swift in Sources */,
