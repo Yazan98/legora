@@ -87,7 +87,7 @@
 					},
 					{
 						"key": "Authorization",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InlhemFuQGdtYWlsLmNvbSIsImlkIjoxLCJ0eXBlIjoiYWNjZXNzX3Rva2VuIiwiaWF0IjoxNzE5MjUzOTc0LCJleHAiOjE3MTkzNDAzNzQsImlzcyI6IkxlZ29yYSBBcGkifQ.hz4fdOEQhk7R1zkyGszTPFDzhWywpVHyL58SdF8I-EI"
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAZ21haWwuY29tIiwiaWQiOjMsInR5cGUiOiJhY2Nlc3NfdG9rZW4iLCJpYXQiOjE3MjAyODMzMTUsImV4cCI6MTcyMDM2OTcxNSwiaXNzIjoiTGVnb3JhIEFwaSJ9.lDgr2urXHSobBtqhQo-PJ7sVSSuFdSbfpR1_j2k-bRQ"
 					}
 				],
 				"url": "{{HOST}}/api/v1/champions/lol"
@@ -113,10 +113,10 @@
 					},
 					{
 						"key": "Authorization",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InlhemFudGFyaWZpOThAZ21haWwuY29tIiwiaWQiOjIsInR5cGUiOiJhY2Nlc3NfdG9rZW4iLCJpYXQiOjE3MTgzMDIwMjIsImV4cCI6MTcxODM4ODQyMiwiaXNzIjoiVHJhdmVscyBBcGkifQ.ds0BM7-WUek1RG8Km2bMlP4mfzsKjOSxLUtZuwfKpzE"
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAZ21haWwuY29tIiwiaWQiOjMsInR5cGUiOiJhY2Nlc3NfdG9rZW4iLCJpYXQiOjE3MjAyODMzMTUsImV4cCI6MTcyMDM2OTcxNSwiaXNzIjoiTGVnb3JhIEFwaSJ9.lDgr2urXHSobBtqhQo-PJ7sVSSuFdSbfpR1_j2k-bRQ"
 					}
 				],
-				"url": "{{HOST}}/api/v1/champions/lol/Diana"
+				"url": "{{HOST}}/api/v1/champions/lol/Khazix"
 			},
 			"response": []
 		},
@@ -139,10 +139,10 @@
 					},
 					{
 						"key": "Authorization",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InlhemFuQGdtYWlsLmNvbSIsImlkIjoxLCJ0eXBlIjoiYWNjZXNzX3Rva2VuIiwiaWF0IjoxNzE5MjUzOTc0LCJleHAiOjE3MTkzNDAzNzQsImlzcyI6IkxlZ29yYSBBcGkifQ.hz4fdOEQhk7R1zkyGszTPFDzhWywpVHyL58SdF8I-EI"
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAZ21haWwuY29tIiwiaWQiOjMsInR5cGUiOiJhY2Nlc3NfdG9rZW4iLCJpYXQiOjE3MjAyODMzMTUsImV4cCI6MTcyMDM2OTcxNSwiaXNzIjoiTGVnb3JhIEFwaSJ9.lDgr2urXHSobBtqhQo-PJ7sVSSuFdSbfpR1_j2k-bRQ"
 					}
 				],
-				"url": "http://localhost:4006/api/v1/champions/tft"
+				"url": "{{HOST}}/api/v1/champions/tft"
 			},
 			"response": []
 		},
@@ -165,7 +165,7 @@
 					},
 					{
 						"key": "Authorization",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InlhemFuQGdtYWlsLmNvbSIsImlkIjoxLCJ0eXBlIjoiYWNjZXNzX3Rva2VuIiwiaWF0IjoxNzE4Mzk1NDI0LCJleHAiOjE3MTg0ODE4MjQsImlzcyI6IkxlZ29yYSBBcGkifQ.1sYy45Rqw4dqkmMTy4rHz2pzF3WiN_7T-yeDW5xMEys"
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAZ21haWwuY29tIiwiaWQiOjMsInR5cGUiOiJhY2Nlc3NfdG9rZW4iLCJpYXQiOjE3MjAyODMzMTUsImV4cCI6MTcyMDM2OTcxNSwiaXNzIjoiTGVnb3JhIEFwaSJ9.lDgr2urXHSobBtqhQo-PJ7sVSSuFdSbfpR1_j2k-bRQ"
 					}
 				],
 				"url": "{{HOST}}/api/v1/home/feed"
@@ -191,7 +191,7 @@
 					},
 					{
 						"key": "Authorization",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InlhemFudGFyaWZpOThAZ21haWwuY29tIiwiaWQiOjIsInR5cGUiOiJhY2Nlc3NfdG9rZW4iLCJpYXQiOjE3MTgzMDIwMjIsImV4cCI6MTcxODM4ODQyMiwiaXNzIjoiVHJhdmVscyBBcGkifQ.ds0BM7-WUek1RG8Km2bMlP4mfzsKjOSxLUtZuwfKpzE"
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAZ21haWwuY29tIiwiaWQiOjMsInR5cGUiOiJhY2Nlc3NfdG9rZW4iLCJpYXQiOjE3MjAyODMzMTUsImV4cCI6MTcyMDM2OTcxNSwiaXNzIjoiTGVnb3JhIEFwaSJ9.lDgr2urXHSobBtqhQo-PJ7sVSSuFdSbfpR1_j2k-bRQ"
 					}
 				],
 				"url": "{{HOST}}/api/v1/accounts/info"
@@ -217,7 +217,7 @@
 					},
 					{
 						"key": "Authorization",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InlhemFuQGdtYWlsLmNvbSIsImlkIjoxLCJ0eXBlIjoiYWNjZXNzX3Rva2VuIiwiaWF0IjoxNzE4Mzk1NDI0LCJleHAiOjE3MTg0ODE4MjQsImlzcyI6IkxlZ29yYSBBcGkifQ.1sYy45Rqw4dqkmMTy4rHz2pzF3WiN_7T-yeDW5xMEys"
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAZ21haWwuY29tIiwiaWQiOjMsInR5cGUiOiJhY2Nlc3NfdG9rZW4iLCJpYXQiOjE3MjAyODMzMTUsImV4cCI6MTcyMDM2OTcxNSwiaXNzIjoiTGVnb3JhIEFwaSJ9.lDgr2urXHSobBtqhQo-PJ7sVSSuFdSbfpR1_j2k-bRQ"
 					}
 				],
 				"url": "{{HOST}}/api/v1/matches/lol"
@@ -243,7 +243,7 @@
 					},
 					{
 						"key": "Authorization",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InlhemFuQGdtYWlsLmNvbSIsImlkIjoxLCJ0eXBlIjoiYWNjZXNzX3Rva2VuIiwiaWF0IjoxNzE4Mzk1NDI0LCJleHAiOjE3MTg0ODE4MjQsImlzcyI6IkxlZ29yYSBBcGkifQ.1sYy45Rqw4dqkmMTy4rHz2pzF3WiN_7T-yeDW5xMEys"
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAZ21haWwuY29tIiwiaWQiOjMsInR5cGUiOiJhY2Nlc3NfdG9rZW4iLCJpYXQiOjE3MjAyODMzMTUsImV4cCI6MTcyMDM2OTcxNSwiaXNzIjoiTGVnb3JhIEFwaSJ9.lDgr2urXHSobBtqhQo-PJ7sVSSuFdSbfpR1_j2k-bRQ"
 					}
 				],
 				"url": "{{HOST}}/api/v1/matches/lol/info/EUN1_3608120369"
@@ -269,10 +269,10 @@
 					},
 					{
 						"key": "Authorization",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InlhemFudGFyaWZpOThAZ21haWwuY29tIiwiaWQiOjIsInR5cGUiOiJhY2Nlc3NfdG9rZW4iLCJpYXQiOjE3MTgzMDIwMjIsImV4cCI6MTcxODM4ODQyMiwiaXNzIjoiVHJhdmVscyBBcGkifQ.ds0BM7-WUek1RG8Km2bMlP4mfzsKjOSxLUtZuwfKpzE"
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAZ21haWwuY29tIiwiaWQiOjMsInR5cGUiOiJhY2Nlc3NfdG9rZW4iLCJpYXQiOjE3MjAyODMzMTUsImV4cCI6MTcyMDM2OTcxNSwiaXNzIjoiTGVnb3JhIEFwaSJ9.lDgr2urXHSobBtqhQo-PJ7sVSSuFdSbfpR1_j2k-bRQ"
 					}
 				],
-				"url": "{{HOST}}/api/v1/matches/lol"
+				"url": "{{HOST}}/api/v1/matches/tft"
 			},
 			"response": []
 		}
