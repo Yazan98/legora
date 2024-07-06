@@ -80,7 +80,12 @@ Language: TypeScript
 3. Deployment Steps
 4. Docker Image
 
-> All of them Available inside Readme File in API Path
+> Before Run the Api Project make sure to Replace : TOKEN Env Variable with Riot Token from Your Account Dashboard
+
+All of them Available inside Readme File in API Path
+> Api Documentation [Link](https://github.com/Yazan98/legora/blob/main/api/README.md)
+> Postman Collection [Link](https://github.com/Yazan98/legora/blob/main/Legora%20Api%20Postman%20Collection.json)
+> Docker Compose Yml File for Server Deployment [Link](https://github.com/Yazan98/legora/blob/main/api/server/docker-compose.yml)
 
 # License
 This project is licensed under the MIT License - see the LICENSE file for details.
@@ -90,4 +95,12 @@ Riot Games for the incredible League of Legends game and API.
 Kotlin Multiplatform for enabling shared code across iOS and Android.
 Express.js and TypeScript communities for the powerful backend framework.
 
+# Opensource Project Info
+
+Legora is an unofficial project and is not endorsed or affiliated with Riot Games, Inc. This app is a demo and open-source project created for educational and experimental purposes.
+
+#### Key Points:
+
+1. Not an Official Riot Games Project: This app is developed independently and has no direct connection to Riot Games or any of its official partners.
+2. For Educational Use: The project is intended to showcase the capabilities of Kotlin Multiplatform for mobile development and Express.js with TypeScript for building APIs.
 
