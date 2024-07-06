@@ -1,0 +1,280 @@
+{
+	"info": {
+		"_postman_id": "d75ede84-0039-4151-84a1-375169c7b7b1",
+		"name": "Legora Api Requests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "23355485"
+	},
+	"item": [
+		{
+			"name": "Register Account",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Apps-Language",
+						"value": "ar"
+					},
+					{
+						"key": "Apps-Version",
+						"value": "1"
+					},
+					{
+						"key": "Apps-Platform",
+						"value": "ios"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"test@gmail.com\",\n    \"password\": \"12345678\",\n    \"summonerName\": \"ShadowSilencer#1133\",\n    \"region\": \"europe\",\n    \"serverCode\": \"eun1\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{HOST}}/api/v1/accounts/register"
+			},
+			"response": []
+		},
+		{
+			"name": "Login Request",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Apps-Language",
+						"value": "ar"
+					},
+					{
+						"key": "Apps-Version",
+						"value": "1"
+					},
+					{
+						"key": "Apps-Platform",
+						"value": "ios"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"test@gmail.com\",\n    \"password\": \"12345678\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{HOST}}/api/v1/accounts/login"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Champions List LOL",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Apps-Language",
+						"value": "ar"
+					},
+					{
+						"key": "Apps-Version",
+						"value": "1"
+					},
+					{
+						"key": "Apps-Platform",
+						"value": "ios"
+					},
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InlhemFuQGdtYWlsLmNvbSIsImlkIjoxLCJ0eXBlIjoiYWNjZXNzX3Rva2VuIiwiaWF0IjoxNzE5MjUzOTc0LCJleHAiOjE3MTkzNDAzNzQsImlzcyI6IkxlZ29yYSBBcGkifQ.hz4fdOEQhk7R1zkyGszTPFDzhWywpVHyL58SdF8I-EI"
+					}
+				],
+				"url": "{{HOST}}/api/v1/champions/lol"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Champion Info By Name",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Apps-Language",
+						"value": "ar"
+					},
+					{
+						"key": "Apps-Version",
+						"value": "1"
+					},
+					{
+						"key": "Apps-Platform",
+						"value": "ios"
+					},
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InlhemFudGFyaWZpOThAZ21haWwuY29tIiwiaWQiOjIsInR5cGUiOiJhY2Nlc3NfdG9rZW4iLCJpYXQiOjE3MTgzMDIwMjIsImV4cCI6MTcxODM4ODQyMiwiaXNzIjoiVHJhdmVscyBBcGkifQ.ds0BM7-WUek1RG8Km2bMlP4mfzsKjOSxLUtZuwfKpzE"
+					}
+				],
+				"url": "{{HOST}}/api/v1/champions/lol/Diana"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Champions List TFT",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Apps-Language",
+						"value": "ar"
+					},
+					{
+						"key": "Apps-Version",
+						"value": "1"
+					},
+					{
+						"key": "Apps-Platform",
+						"value": "ios"
+					},
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InlhemFuQGdtYWlsLmNvbSIsImlkIjoxLCJ0eXBlIjoiYWNjZXNzX3Rva2VuIiwiaWF0IjoxNzE5MjUzOTc0LCJleHAiOjE3MTkzNDAzNzQsImlzcyI6IkxlZ29yYSBBcGkifQ.hz4fdOEQhk7R1zkyGszTPFDzhWywpVHyL58SdF8I-EI"
+					}
+				],
+				"url": "http://localhost:4006/api/v1/champions/tft"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Home Feed Info",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Apps-Language",
+						"value": "ar"
+					},
+					{
+						"key": "Apps-Version",
+						"value": "1"
+					},
+					{
+						"key": "Apps-Platform",
+						"value": "ios"
+					},
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InlhemFuQGdtYWlsLmNvbSIsImlkIjoxLCJ0eXBlIjoiYWNjZXNzX3Rva2VuIiwiaWF0IjoxNzE4Mzk1NDI0LCJleHAiOjE3MTg0ODE4MjQsImlzcyI6IkxlZ29yYSBBcGkifQ.1sYy45Rqw4dqkmMTy4rHz2pzF3WiN_7T-yeDW5xMEys"
+					}
+				],
+				"url": "{{HOST}}/api/v1/home/feed"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Account Info",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Apps-Language",
+						"value": "ar"
+					},
+					{
+						"key": "Apps-Version",
+						"value": "1"
+					},
+					{
+						"key": "Apps-Platform",
+						"value": "ios"
+					},
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InlhemFudGFyaWZpOThAZ21haWwuY29tIiwiaWQiOjIsInR5cGUiOiJhY2Nlc3NfdG9rZW4iLCJpYXQiOjE3MTgzMDIwMjIsImV4cCI6MTcxODM4ODQyMiwiaXNzIjoiVHJhdmVscyBBcGkifQ.ds0BM7-WUek1RG8Km2bMlP4mfzsKjOSxLUtZuwfKpzE"
+					}
+				],
+				"url": "{{HOST}}/api/v1/accounts/info"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Match History LOL",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Apps-Language",
+						"value": "ar"
+					},
+					{
+						"key": "Apps-Version",
+						"value": "1"
+					},
+					{
+						"key": "Apps-Platform",
+						"value": "ios"
+					},
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InlhemFuQGdtYWlsLmNvbSIsImlkIjoxLCJ0eXBlIjoiYWNjZXNzX3Rva2VuIiwiaWF0IjoxNzE4Mzk1NDI0LCJleHAiOjE3MTg0ODE4MjQsImlzcyI6IkxlZ29yYSBBcGkifQ.1sYy45Rqw4dqkmMTy4rHz2pzF3WiN_7T-yeDW5xMEys"
+					}
+				],
+				"url": "{{HOST}}/api/v1/matches/lol"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Match Info By Id",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Apps-Language",
+						"value": "ar"
+					},
+					{
+						"key": "Apps-Version",
+						"value": "1"
+					},
+					{
+						"key": "Apps-Platform",
+						"value": "ios"
+					},
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InlhemFuQGdtYWlsLmNvbSIsImlkIjoxLCJ0eXBlIjoiYWNjZXNzX3Rva2VuIiwiaWF0IjoxNzE4Mzk1NDI0LCJleHAiOjE3MTg0ODE4MjQsImlzcyI6IkxlZ29yYSBBcGkifQ.1sYy45Rqw4dqkmMTy4rHz2pzF3WiN_7T-yeDW5xMEys"
+					}
+				],
+				"url": "{{HOST}}/api/v1/matches/lol/info/EUN1_3608120369"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Match History TFT",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Apps-Language",
+						"value": "ar"
+					},
+					{
+						"key": "Apps-Version",
+						"value": "1"
+					},
+					{
+						"key": "Apps-Platform",
+						"value": "ios"
+					},
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InlhemFudGFyaWZpOThAZ21haWwuY29tIiwiaWQiOjIsInR5cGUiOiJhY2Nlc3NfdG9rZW4iLCJpYXQiOjE3MTgzMDIwMjIsImV4cCI6MTcxODM4ODQyMiwiaXNzIjoiVHJhdmVscyBBcGkifQ.ds0BM7-WUek1RG8Km2bMlP4mfzsKjOSxLUtZuwfKpzE"
+					}
+				],
+				"url": "{{HOST}}/api/v1/matches/lol"
+			},
+			"response": []
+		}
+	]
+}
