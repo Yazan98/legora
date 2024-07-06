@@ -29,11 +29,14 @@
 		8AD3FFD82C3070BC003B0367 /* AuthSelectionListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD3FFD72C3070BC003B0367 /* AuthSelectionListener.swift */; };
 		8AD3FFDA2C3078EF003B0367 /* ChampionsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD3FFD92C3078EF003B0367 /* ChampionsScreen.swift */; };
 		8AD3FFDC2C307901003B0367 /* AccountScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD3FFDB2C307901003B0367 /* AccountScreen.swift */; };
-		8AD3FFDE2C307910003B0367 /* FeedScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD3FFDD2C307910003B0367 /* FeedScreen.swift */; };
 		8AD3FFE02C30A556003B0367 /* ChampionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD3FFDF2C30A556003B0367 /* ChampionsViewModel.swift */; };
 		8AD3FFE22C346B1E003B0367 /* TitleWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD3FFE12C346B1E003B0367 /* TitleWidget.swift */; };
 		8AD3FFE42C3798F4003B0367 /* ChampionItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD3FFE32C3798F4003B0367 /* ChampionItemView.swift */; };
 		8AD3FFE62C381BAD003B0367 /* FreeChampionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD3FFE52C381BAD003B0367 /* FreeChampionsView.swift */; };
+		8AD3FFE82C39401D003B0367 /* AccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD3FFE72C39401D003B0367 /* AccountViewModel.swift */; };
+		8AD3FFEA2C394373003B0367 /* AccountHeaderWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD3FFE92C394373003B0367 /* AccountHeaderWidget.swift */; };
+		8AD3FFEC2C394912003B0367 /* MasteryChampionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD3FFEB2C394912003B0367 /* MasteryChampionView.swift */; };
+		8AD3FFEE2C394A29003B0367 /* LeagueMatchHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD3FFED2C394A29003B0367 /* LeagueMatchHistoryView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,11 +63,14 @@
 		8AD3FFD72C3070BC003B0367 /* AuthSelectionListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthSelectionListener.swift; sourceTree = "<group>"; };
 		8AD3FFD92C3078EF003B0367 /* ChampionsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChampionsScreen.swift; sourceTree = "<group>"; };
 		8AD3FFDB2C307901003B0367 /* AccountScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountScreen.swift; sourceTree = "<group>"; };
-		8AD3FFDD2C307910003B0367 /* FeedScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedScreen.swift; sourceTree = "<group>"; };
 		8AD3FFDF2C30A556003B0367 /* ChampionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChampionsViewModel.swift; sourceTree = "<group>"; };
 		8AD3FFE12C346B1E003B0367 /* TitleWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleWidget.swift; sourceTree = "<group>"; };
 		8AD3FFE32C3798F4003B0367 /* ChampionItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChampionItemView.swift; sourceTree = "<group>"; };
 		8AD3FFE52C381BAD003B0367 /* FreeChampionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreeChampionsView.swift; sourceTree = "<group>"; };
+		8AD3FFE72C39401D003B0367 /* AccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewModel.swift; sourceTree = "<group>"; };
+		8AD3FFE92C394373003B0367 /* AccountHeaderWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountHeaderWidget.swift; sourceTree = "<group>"; };
+		8AD3FFEB2C394912003B0367 /* MasteryChampionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasteryChampionView.swift; sourceTree = "<group>"; };
+		8AD3FFED2C394A29003B0367 /* LeagueMatchHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeagueMatchHistoryView.swift; sourceTree = "<group>"; };
 		A4A973F94C50DD16569E03A1 /* Pods_iosApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iosApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAA0B0BE2EAC56399B71F747 /* Pods-iosApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iosApp.release.xcconfig"; path = "Target Support Files/Pods-iosApp/Pods-iosApp.release.xcconfig"; sourceTree = "<group>"; };
 		AD448F702139C63E875778CD /* Pods-iosApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iosApp.debug.xcconfig"; path = "Target Support Files/Pods-iosApp/Pods-iosApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -172,6 +178,9 @@
 				8AD3FFE12C346B1E003B0367 /* TitleWidget.swift */,
 				8AD3FFE32C3798F4003B0367 /* ChampionItemView.swift */,
 				8AD3FFE52C381BAD003B0367 /* FreeChampionsView.swift */,
+				8AD3FFE92C394373003B0367 /* AccountHeaderWidget.swift */,
+				8AD3FFEB2C394912003B0367 /* MasteryChampionView.swift */,
+				8AD3FFED2C394A29003B0367 /* LeagueMatchHistoryView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -190,6 +199,7 @@
 			children = (
 				8AD3FFC42C2F3388003B0367 /* AuthViewModel.swift */,
 				8AD3FFDF2C30A556003B0367 /* ChampionsViewModel.swift */,
+				8AD3FFE72C39401D003B0367 /* AccountViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -201,7 +211,6 @@
 				8AD3FFC02C2E8E11003B0367 /* RegisterScreen.swift */,
 				8AD3FFD92C3078EF003B0367 /* ChampionsScreen.swift */,
 				8AD3FFDB2C307901003B0367 /* AccountScreen.swift */,
-				8AD3FFDD2C307910003B0367 /* FeedScreen.swift */,
 			);
 			path = SubScreens;
 			sourceTree = "<group>";
@@ -331,27 +340,30 @@
 				8AD3FFCF2C2F374A003B0367 /* LegoraLoadingView.swift in Sources */,
 				8AD3FFC52C2F3388003B0367 /* AuthViewModel.swift in Sources */,
 				8AD3FFB62C2B4B86003B0367 /* ApplicationDependenciesManager.swift in Sources */,
+				8AD3FFEC2C394912003B0367 /* MasteryChampionView.swift in Sources */,
 				8AD3FFBA2C2B4D24003B0367 /* HomeScreen.swift in Sources */,
 				8AD3FFDA2C3078EF003B0367 /* ChampionsScreen.swift in Sources */,
 				8AD3FFD82C3070BC003B0367 /* AuthSelectionListener.swift in Sources */,
+				8AD3FFE82C39401D003B0367 /* AccountViewModel.swift in Sources */,
 				2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */,
 				8AD3FFB82C2B4CE8003B0367 /* LegoraApplicationUtils.swift in Sources */,
 				8AD3FFD12C2F3869003B0367 /* ScreensDependencies.swift in Sources */,
 				8AD3FFC12C2E8E11003B0367 /* RegisterScreen.swift in Sources */,
 				8AD3FFE42C3798F4003B0367 /* ChampionItemView.swift in Sources */,
+				8AD3FFEA2C394373003B0367 /* AccountHeaderWidget.swift in Sources */,
 				8AD3FFBF2C2E8E0A003B0367 /* LoginScreen.swift in Sources */,
 				7555FF83242A565900829871 /* SplashScreen.swift in Sources */,
 				8AD3FFE22C346B1E003B0367 /* TitleWidget.swift in Sources */,
 				8AD3FFE02C30A556003B0367 /* ChampionsViewModel.swift in Sources */,
 				8AD3FFCB2C2F34C5003B0367 /* AuthViewModelImplementation.swift in Sources */,
 				8AD3FFBC2C2B4D2B003B0367 /* AuthScreen.swift in Sources */,
+				8AD3FFEE2C394A29003B0367 /* LeagueMatchHistoryView.swift in Sources */,
 				8AD3FFE62C381BAD003B0367 /* FreeChampionsView.swift in Sources */,
 				8AD3FFC82C2F3483003B0367 /* AuthScreenListener.swift in Sources */,
 				8AD3FFC32C2E9643003B0367 /* LegoraThemeStyle.swift in Sources */,
 				8AD3FFD32C307044003B0367 /* LegoraBottomSheetOptionsPicker.swift in Sources */,
 				8AD3FFD62C30707F003B0367 /* AuthBottomSheetOption.swift in Sources */,
 				8AD3FFDC2C307901003B0367 /* AccountScreen.swift in Sources */,
-				8AD3FFDE2C307910003B0367 /* FeedScreen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

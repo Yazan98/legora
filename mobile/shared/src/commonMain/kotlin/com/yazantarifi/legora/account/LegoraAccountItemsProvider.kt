@@ -37,6 +37,7 @@ class LegoraAccountItemsProvider constructor(
     }
 
     fun getProfileInfo(onSuccess: (List<AccountItem>) -> Unit) {
+        println("Get Account Info From Api")
         var accountInfo: AccountInfoResponse? = null
         var lolMatchHistory: List<LegoraMatch>? = null
         var tftMatchHistory: List<LegoraTftMatch>? = null
@@ -46,18 +47,21 @@ class LegoraAccountItemsProvider constructor(
                 it.data?.let { it1 -> accountInfo = it1 }
             }, {
                 // Handle Error -> Demo
+                println("Error :: ${it.message}")
             })
 
             lolMatchHistoryRequest.getSuspendedRequestInfo(Unit, {
                 it.data?.let { it1 -> lolMatchHistory = it1 }
             }, {
                 // Handle Error -> Demo
+                println("Error :: ${it.message}")
             })
 
             tftMatchHistoryRequest.getSuspendedRequestInfo(Unit, {
                 it.data?.let { it1 -> tftMatchHistory = it1 }
             }, {
                 // Handle Error -> Demo
+                println("Error :: ${it.message}")
             })
 
             accountInfo?.let {

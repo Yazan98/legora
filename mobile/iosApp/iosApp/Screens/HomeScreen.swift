@@ -11,20 +11,16 @@ import SwiftUI
 struct HomeScreen: View {
     
     @StateObject private var championsViewModel = ChampionsViewModel()
+    @StateObject private var accountViewModel = AccountViewModel()
     
     var body: some View {
         TabView {
-            FeedScreen()
-                .tabItem {
-                   Label("Home", systemImage: "house.fill")
-                }
-            
             ChampionsScreen(viewModel: championsViewModel)
                 .tabItem {
                    Label("Champions", systemImage: "opticaldiscdrive.fill")
                 }
             
-            AccountScreen()
+            AccountScreen(viewModel: accountViewModel)
                 .tabItem {
                    Label("Account", systemImage: "person.fill")
                 }

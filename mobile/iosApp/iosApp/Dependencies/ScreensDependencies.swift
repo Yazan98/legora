@@ -14,6 +14,7 @@ public class ScreensDependencies {
     private static var loginAccountRequestManager: LoginAccountRequestManager? = nil
     private static var registerAccountRequestManager: RegisterAccountRequestManager? = nil
     private static var championsItemsProvider: LegoraChampionsItemsProvider? = nil
+    private static var accountItemsProvider: LegoraAccountItemsProvider? = nil
         
     public static func getLoginRequestManagerInstance() -> LoginAccountRequestManager? {
         if loginAccountRequestManager == nil {
@@ -53,5 +54,16 @@ public class ScreensDependencies {
         }
         
         return championsItemsProvider
+    }
+    
+    public static func getAccountItemsProviderInstance() -> LegoraAccountItemsProvider? {
+        if accountItemsProvider == nil {
+            accountItemsProvider = LegoraAccountItemsProvider(
+                httpClient: ApplicationDependenciesManager.shared.getHttpClient(),
+                storageProvider: ApplicationDependenciesManager.shared.getStorageInstance()!
+            )
+        }
+        
+        return accountItemsProvider
     }
 }

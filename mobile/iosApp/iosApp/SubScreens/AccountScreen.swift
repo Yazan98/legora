@@ -7,13 +7,52 @@
 //
 
 import SwiftUI
+import shared
 
 struct AccountScreen: View {
-    var body: some View {
-        Text("Account Screen")
-    }
-}
+    
+    @ObservedObject var viewModel: AccountViewModel
 
-#Preview {
-    AccountScreen()
+    var body: some View {
+        VStack {
+            getScreenContent()
+        }
+        .onAppear {
+            viewModel.getAccountInfo()
+        }
+    }
+    
+    @ViewBuilder
+    private func getScreenContent() -> some View {
+        if viewModel.isLoading {
+            LegoraLoadingView()
+        } else {
+            if viewModel.accountItems.isEmpty == false {
+                ScrollView(showsIndicators: false) {
+                    LazyVStack {
+                        ForEach(0...viewModel.accountItems.count - 1, id: \.self) { item in
+                            getItemByIndex(index: item)
+                        }
+                    }
+                }
+                .ignoresSafeArea()
+            }
+        }
+    }
+    
+    @ViewBuilder
+    private func getItemByIndex(index: Int) -> some View {
+        switch (viewModel.accountItems[index].getType()) {
+        case .title:
+            TitleWidget(title: (viewModel.accountItems[index] as! AccountTitle).title)
+        case .header:
+            AccountHeaderWidget(header: (viewModel.accountItems[index] as! AccountInfoResponse))
+        case .lolMatchHistory:
+            LeagueMatchHistoryView(match: (viewModel.accountItems[index] as! LegoraMatch))
+        default:
+            Text("Another WIdget")
+//            TitleWidget(title: (viewModel.accountItems[index] as! AccountTitle).title)
+        }
+    }
+    
 }
