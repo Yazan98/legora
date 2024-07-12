@@ -7,6 +7,10 @@ Welcome to the League of Legends Mobile Companion! This project is an open-sourc
 
 ![](https://github.com/Yazan98/legora/blob/main/images/Banner%20Image.png?raw=true)
 
+## Riot Games Api Info
+We have a Completed Article about Using Riot Games Apis to get Started and see All Curls that used inside this Project
+[Article Link](https://medium.com/@yazantarifi98/unlocking-the-power-of-riot-api-fetching-summoner-and-champion-data-for-your-league-of-legends-app-9f364ae8b27e)
+
 ## Features
 <strong>Feed Screen</strong>: First Screen to Show News, Popular Players
 <strong>Summoner Info</strong>: Show All Info for Summoners including (Lol Matches, TFT Matches, Champions Mastery, Summoner Public Info)
@@ -84,7 +88,9 @@ Language: TypeScript
 
 All of them Available inside Readme File in API Path
 > Api Documentation [Link](https://github.com/Yazan98/legora/blob/main/api/README.md)
+
 > Postman Collection [Link](https://github.com/Yazan98/legora/blob/main/Legora%20Api%20Postman%20Collection.json)
+
 > Docker Compose Yml File for Server Deployment [Link](https://github.com/Yazan98/legora/blob/main/api/server/docker-compose.yml)
 
 # License
